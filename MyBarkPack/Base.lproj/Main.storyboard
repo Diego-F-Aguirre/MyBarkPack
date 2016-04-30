@@ -9,7 +9,7 @@
         <!--My Doggies-->
         <scene sceneID="WZW-oN-zfR">
             <objects>
-                <viewController id="J9t-nr-Hjw" customClass="DogListViewController" customModule="MyBarkPack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="J9t-nr-Hjw" customClass="DogListViewController" customModule="MyBarkPack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U9r-5r-Kau"/>
                         <viewControllerLayoutGuide type="bottom" id="ib5-HE-g1M"/>
@@ -18,22 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="215" sectionHeaderHeight="5" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ri5-2y-gZ1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="250" sectionHeaderHeight="5" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ri5-2y-gZ1">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dogCell" rowHeight="221" id="D6X-lr-isV" customClass="DogTableViewCell" customModule="MyBarkPack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="69" width="320" height="221"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dogCell" rowHeight="250" id="D6X-lr-isV" customClass="DogTableViewCell" customModule="MyBarkPack" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="5" width="320" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D6X-lr-isV" id="tpl-bE-g7F">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nq-n8-2Wf">
-                                                    <rect key="frame" x="87" y="183" width="146" height="29"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nq-n8-2Wf" customClass="LabelContainerView" customModule="MyBarkPack" customModuleProvider="target">
+                                                    <rect key="frame" x="76" y="211" width="160" height="30"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVN-Ju-bOw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="146" height="29"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVN-Ju-bOw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -41,17 +41,15 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.41960784313725491" green="0.84313725490196079" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="NB1-Wp-0Ad"/>
-                                                        <constraint firstAttribute="width" constant="146" id="gfJ-w1-T3e"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NVN-Ju-bOw" secondAttribute="trailing" id="9Ym-RC-fYb"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="Uab-ah-jxm"/>
+                                                        <constraint firstItem="NVN-Ju-bOw" firstAttribute="leading" secondItem="2nq-n8-2Wf" secondAttribute="leading" id="W7e-ql-hE2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="NVN-Ju-bOw" secondAttribute="bottom" id="YHV-Yq-FC6"/>
+                                                        <constraint firstItem="NVN-Ju-bOw" firstAttribute="top" secondItem="2nq-n8-2Wf" secondAttribute="top" id="spP-5q-m11"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOX-5a-FIo">
-                                                    <rect key="frame" x="244" y="182" width="30" height="30"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOX-5a-FIo" customClass="CircleView" customModule="MyBarkPack" customModuleProvider="target">
+                                                    <rect key="frame" x="244" y="211" width="30" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBp-ho-lJj">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -71,30 +69,40 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paw" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-91-Jgk">
-                                                    <rect key="frame" x="38" y="181" width="30" height="30"/>
+                                                    <rect key="frame" x="38" y="210" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="iuu-Ha-8Ud"/>
                                                         <constraint firstAttribute="width" constant="30" id="j0a-73-dZp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog2" translatesAutoresizingMaskIntoConstraints="NO" id="2Es-cc-YMn" customClass="Image" customModule="MyBarkPack" customModuleProvider="target">
-                                                    <rect key="frame" x="77" y="8" width="167" height="167"/>
+                                                    <rect key="frame" x="59" y="5" width="202" height="202"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="167" id="Ejn-3f-451"/>
-                                                        <constraint firstAttribute="width" constant="167" id="H7Q-HA-HwH"/>
+                                                        <constraint firstAttribute="height" constant="202" id="Qm5-kh-VLe"/>
+                                                        <constraint firstAttribute="width" constant="202" id="lo6-Uh-cCG"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2nq-n8-2Wf" firstAttribute="centerX" secondItem="tpl-bE-g7F" secondAttribute="centerX" id="8oA-w6-nVV"/>
-                                                <constraint firstItem="2Es-cc-YMn" firstAttribute="top" secondItem="tpl-bE-g7F" secondAttribute="topMargin" id="9to-BQ-IxM"/>
-                                                <constraint firstItem="2Es-cc-YMn" firstAttribute="centerX" secondItem="tpl-bE-g7F" secondAttribute="centerX" id="FkD-iA-v5T"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2nq-n8-2Wf" secondAttribute="bottom" id="6Hz-nA-Ax9"/>
+                                                <constraint firstItem="X3T-91-Jgk" firstAttribute="top" secondItem="2Es-cc-YMn" secondAttribute="bottom" constant="3" id="E2f-zO-GTL"/>
                                                 <constraint firstItem="vOX-5a-FIo" firstAttribute="bottom" secondItem="tpl-bE-g7F" secondAttribute="bottomMargin" id="TS7-bn-tdQ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="X3T-91-Jgk" secondAttribute="bottom" constant="1" id="XrE-9j-Frg"/>
+                                                <constraint firstItem="2Es-cc-YMn" firstAttribute="top" secondItem="tpl-bE-g7F" secondAttribute="top" constant="5" id="aPm-3g-mvI"/>
                                                 <constraint firstItem="X3T-91-Jgk" firstAttribute="leading" secondItem="tpl-bE-g7F" secondAttribute="leadingMargin" constant="30" id="ceW-ab-sdQ"/>
-                                                <constraint firstItem="2nq-n8-2Wf" firstAttribute="top" secondItem="2Es-cc-YMn" secondAttribute="bottom" constant="8" id="h3B-Qa-lFe"/>
+                                                <constraint firstItem="2Es-cc-YMn" firstAttribute="centerX" secondItem="tpl-bE-g7F" secondAttribute="centerX" id="fGD-TK-8EE"/>
+                                                <constraint firstItem="vOX-5a-FIo" firstAttribute="leading" secondItem="2nq-n8-2Wf" secondAttribute="trailing" constant="8" id="gwc-66-nPm"/>
+                                                <constraint firstItem="2nq-n8-2Wf" firstAttribute="leading" secondItem="X3T-91-Jgk" secondAttribute="trailing" constant="8" id="h46-bC-5xv"/>
+                                                <constraint firstItem="2nq-n8-2Wf" firstAttribute="height" secondItem="X3T-91-Jgk" secondAttribute="height" id="hOm-Jn-0uE"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vOX-5a-FIo" secondAttribute="trailing" constant="38" id="kbU-d5-rD1"/>
+                                                <constraint firstItem="2nq-n8-2Wf" firstAttribute="centerX" secondItem="tpl-bE-g7F" secondAttribute="centerX" constant="-4" id="sRp-C3-KsD"/>
+                                                <constraint firstItem="2nq-n8-2Wf" firstAttribute="bottom" secondItem="tpl-bE-g7F" secondAttribute="bottomMargin" id="tFk-X5-wf6"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="6Hz-nA-Ax9"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ageContainerView" destination="vOX-5a-FIo" id="cSm-pQ-TC8"/>
@@ -149,7 +157,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lxi-zo-ntC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lxi-zo-ntC" customClass="Image" customModule="MyBarkPack" customModuleProvider="target">
                                 <rect key="frame" x="40" y="72" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="7yf-ia-JVZ"/>
@@ -158,7 +166,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bXO-gQ-Yjp">
                                 <rect key="frame" x="16" y="326" width="288" height="234"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="dew-T5-YdR" customClass="TaskTableViewCell" customModule="MyBarkPack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="288" height="44"/>
@@ -170,7 +178,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKP-cd-K5V">
                                                     <rect key="frame" x="8" y="6" width="232" height="32"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPx-V9-sgK">
@@ -232,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Q5-Mb-KJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="396"/>
+            <point key="canvasLocation" x="1359" y="396"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gtz-3E-xta">

@@ -12,6 +12,7 @@ class AppearanceController {
     static func initializeAppearanceDefaults() {
         UINavigationBar.appearance().barTintColor = UIColor.lightBlue()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().titleTextAttributes = ([NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 27)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
 }

@@ -45,13 +45,58 @@ extension DogDetailViewController: UITableViewDelegate {
     }
 }
 
-extension DogDetailViewController {
+extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBAction func backButtonPressed(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func cameraButtonPressed(sender: AnyObject) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+        
+//        let alertController = UIAlertController(title: "Doggie portrait!", message: "Choose a profile photo for your dog", preferredStyle: .Alert)
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        guard let info: NSDictionary = info as NSDictionary else { return }
+        
+        let image: UIImage = info.objectForKey(UIImagePickerControllerOriginalImage) as! UIImage
+        
+        dogProfileImage.image = image
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

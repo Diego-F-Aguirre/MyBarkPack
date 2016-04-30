@@ -13,7 +13,7 @@ class DogListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.adjustHeaderHeight()
     }
 }
 
@@ -39,6 +39,10 @@ extension DogListViewController: UITableViewDelegate {
             DogController.sharedController.removeDog(dog)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
+    }
+    
+    func adjustHeaderHeight() {
+//        self.tableView.contentInset = UIEdgeInsetsZero
     }
 }
 

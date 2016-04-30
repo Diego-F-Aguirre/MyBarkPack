@@ -26,6 +26,8 @@
 		BC46CF1B1CCDD191006BAFC0 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF1A1CCDD191006BAFC0 /* DogDetailViewController.swift */; };
 		BC46CF1D1CCDE015006BAFC0 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF1C1CCDE015006BAFC0 /* TaskTableViewCell.swift */; };
 		BC46CF1F1CCDE0FA006BAFC0 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF1E1CCDE0FA006BAFC0 /* TaskController.swift */; };
+		BCC41CF91CD5242D0099A326 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CF81CD5242D0099A326 /* CircleView.swift */; };
+		BCC41CFB1CD525B60099A326 /* LabelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		BC46CF1A1CCDD191006BAFC0 /* DogDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
 		BC46CF1C1CCDE015006BAFC0 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		BC46CF1E1CCDE0FA006BAFC0 /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		BCC41CF81CD5242D0099A326 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		BC46CEE91CCB68CA006BAFC0 /* MyBarkPack */ = {
 			isa = PBXGroup;
 			children = (
+				BCC41CF71CD523AC0099A326 /* CustomViews */,
 				BC46CF0D1CCB78DD006BAFC0 /* Utilities */,
 				BC46CEFF1CCB6929006BAFC0 /* CoreData */,
 				BC46CEFE1CCB6922006BAFC0 /* Model */,
@@ -140,10 +145,19 @@
 		BC46CF0D1CCB78DD006BAFC0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				BC46CF0E1CCB790C006BAFC0 /* Image.swift */,
 				BC46CF121CCB8046006BAFC0 /* UIColor+PalleteColor.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		BCC41CF71CD523AC0099A326 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				BC46CF0E1CCB790C006BAFC0 /* Image.swift */,
+				BCC41CF81CD5242D0099A326 /* CircleView.swift */,
+				BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +242,8 @@
 				BC46CF191CCDA73F006BAFC0 /* DogController.swift in Sources */,
 				BC46CF111CCB7D72006BAFC0 /* DogListViewController.swift in Sources */,
 				BC46CF131CCB8046006BAFC0 /* UIColor+PalleteColor.swift in Sources */,
+				BCC41CFB1CD525B60099A326 /* LabelContainerView.swift in Sources */,
+				BCC41CF91CD5242D0099A326 /* CircleView.swift in Sources */,
 				BC46CEEB1CCB68CB006BAFC0 /* AppDelegate.swift in Sources */,
 				BC46CF0A1CCB6E81006BAFC0 /* Task.swift in Sources */,
 				BC46CF151CCB8142006BAFC0 /* AppearanceController.swift in Sources */,
@@ -382,6 +398,7 @@
 				BC46CEFB1CCB68CB006BAFC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

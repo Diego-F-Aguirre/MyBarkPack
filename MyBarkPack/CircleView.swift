@@ -1,16 +1,16 @@
 //
-//  Image.swift
+//  CircleView.swift
 //  MyBarkPack
 //
-//  Created by Diego Aguirre on 4/23/16.
+//  Created by Diego Aguirre on 4/30/16.
 //  Copyright © 2016 home. All rights reserved.
 //
 
 import UIKit
 
-class Image: UIImageView {
+class CircleView: UIView {
     override func awakeFromNib() {
-        self.layer.cornerRadius = self.layer.frame.size.width / 2
+        self.layer.cornerRadius = CGRectGetWidth(self.layer.frame)/2.0
         self.clipsToBounds = true
     }
 }

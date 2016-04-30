@@ -13,7 +13,6 @@ import Foundation
 import CoreData
 
 extension Task {
-
     @NSManaged var title: String
     @NSManaged var isChecked: NSNumber
     @NSManaged var dog: NSManagedObject

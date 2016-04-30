@@ -13,7 +13,6 @@ import Foundation
 import CoreData
 
 extension Dog {
-
     @NSManaged var name: String
     @NSManaged var age: NSNumber
     @NSManaged var sex: NSNumber
