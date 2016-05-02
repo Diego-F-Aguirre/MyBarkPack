@@ -28,8 +28,8 @@ extension DogTableViewCell {
     func updateDogCell(dog: Dog) {
         self.dog = dog
         
-//        guard let dogImage = dog.image else { return }
-//        profileImage.image = UIImage(data: dogImage)
+        guard let dogImage = dog.image else { return }
+        profileImage.image = UIImage(data: dogImage)
         
         nameLabel.text = dog.name
         ageLabel.text = String(dog.age)

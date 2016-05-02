@@ -40,6 +40,12 @@ extension DogController {
         return dogs
     }
     
+    func updateDog(dog: Dog, newImageData: NSData?) {
+        guard let imageData = newImageData else { return }
+        dog.image = imageData
+        saveDog()
+    }
+    
     func saveDog() {
         let context = Stack.sharedStack.managedObjectContext
         

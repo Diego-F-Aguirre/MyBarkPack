@@ -12,11 +12,14 @@ class DogDetailViewController: UIViewController {
     @IBOutlet weak var dogProfileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    var dog: Dog?
     var task: Task?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let dog = dog else { return }
+        updateViewWithDog(dog)
     }
 }
 
@@ -28,8 +31,7 @@ extension DogDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
-        let task = TaskController.sharedController.tasks[indexPath.row]
-        
+        //        let task = TaskController.sharedController.tasks[indexPath.row]
         
         return cell
     }
@@ -56,18 +58,30 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         self.presentViewController(imagePicker, animated: true, completion: nil)
-        
-//        let alertController = UIAlertController(title: "Doggie portrait!", message: "Choose a profile photo for your dog", preferredStyle: .Alert)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        guard let info: NSDictionary = info as NSDictionary else { return }
+        guard let info: NSDictionary = info as NSDictionary,
+            image: UIImage = info.objectForKey(UIImagePickerControllerOriginalImage) as? UIImage,
+            imageData: NSData = UIImagePNGRepresentation(image) else {
+                print("No image retrieved")
+                return
+        }
         
-        let image: UIImage = info.objectForKey(UIImagePickerControllerOriginalImage) as! UIImage
-        
-        dogProfileImage.image = image
+        guard let dog = self.dog else { return }
+        DogController.sharedController.updateDog(dog, newImageData: imageData)
+        self.dogProfileImage.image = UIImage(data: dog.image!)
         
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension DogDetailViewController {
+    func updateViewWithDog(dog: Dog) {
+        if let dog = self.dog {
+            self.title = dog.name
+            dogProfileImage.image = UIImage(data: dog.image!)
+        }
     }
 }
 

@@ -75,7 +75,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="j0a-73-dZp"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog2" translatesAutoresizingMaskIntoConstraints="NO" id="2Es-cc-YMn" customClass="Image" customModule="MyBarkPack" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Es-cc-YMn" customClass="Image" customModule="MyBarkPack" customModuleProvider="target">
                                                     <rect key="frame" x="59" y="5" width="202" height="202"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="202" id="Qm5-kh-VLe"/>
@@ -111,7 +111,7 @@
                                             <outlet property="nameLabel" destination="NVN-Ju-bOw" id="SyC-GS-0Gf"/>
                                             <outlet property="pawSexImage" destination="X3T-91-Jgk" id="O9M-MO-gpz"/>
                                             <outlet property="profileImage" destination="2Es-cc-YMn" id="FcT-o5-Ei8"/>
-                                            <segue destination="pCi-xY-U4w" kind="show" id="XPP-kR-nKv"/>
+                                            <segue destination="pCi-xY-U4w" kind="show" identifier="toDogDetail" id="XPP-kR-nKv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -264,6 +264,5 @@
     <resources>
         <image name="Empty_Check_Box" width="32" height="32"/>
         <image name="Paw" width="32" height="43"/>
-        <image name="dog2" width="316" height="237"/>
     </resources>
 </document>
