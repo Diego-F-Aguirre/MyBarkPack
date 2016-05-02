@@ -80,7 +80,10 @@ extension DogDetailViewController {
     func updateViewWithDog(dog: Dog) {
         if let dog = self.dog {
             self.title = dog.name
-            dogProfileImage.image = UIImage(data: dog.image!)
+        }
+        
+        if let image = dog.image {
+            dogProfileImage.image = UIImage(data: image)
         }
     }
 }

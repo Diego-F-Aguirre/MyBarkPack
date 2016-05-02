@@ -17,11 +17,6 @@ class DogTableViewCell: UITableViewCell {
     @IBOutlet weak var pawSexImage: UIImageView!
     
     var dog: Dog?
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 }
 
 extension DogTableViewCell {
