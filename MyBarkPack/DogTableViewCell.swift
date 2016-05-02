@@ -23,12 +23,26 @@ extension DogTableViewCell {
     func updateDogCell(dog: Dog) {
         self.dog = dog
         
-        guard let dogImage = dog.image else { return }
-        profileImage.image = UIImage(data: dogImage)
+        if let dogImage = dog.image {
+            profileImage.image = UIImage(data: dogImage)
+        } else {
+            profileImage.image = nil
+        }
         
         nameLabel.text = dog.name
         ageLabel.text = String(dog.age)
-        pawSexImage.image = UIImage(named: "Paw")
+        
+        
+        if dog.sex == true {
+            nameContainerView.backgroundColor = UIColor.lightBlue()
+            pawSexImage.image = UIImage(named: "Paw")
+            ageContainerView.backgroundColor = UIColor.lightBlue()
+            
+        } else {
+            nameContainerView.backgroundColor = UIColor.lightPink()
+            pawSexImage.image = UIImage(named: "Female_Paw")
+            ageContainerView.backgroundColor = UIColor.lightPink()
+        }
     }
 }
 

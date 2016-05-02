@@ -188,6 +188,9 @@
                                                         <constraint firstAttribute="width" constant="32" id="b9f-6n-odS"/>
                                                     </constraints>
                                                     <state key="normal" image="Empty_Check_Box"/>
+                                                    <connections>
+                                                        <action selector="checkBoxButtonPressed:" destination="dew-T5-YdR" eventType="touchUpInside" id="xvY-kb-98N"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -204,22 +207,73 @@
                                             <outlet property="titleLabel" destination="IKP-cd-K5V" id="eL9-Zi-ROl"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="29" id="cyA-w1-E3p">
+                                        <rect key="frame" x="0.0" y="94" width="288" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cyA-w1-E3p" id="eQL-r4-bGN">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="28"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="648-wK-OqI" customClass="LabelContainerView" customModule="MyBarkPack" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="648-wK-OqI" secondAttribute="bottom" id="Gqw-lv-prE"/>
+                                                <constraint firstItem="648-wK-OqI" firstAttribute="leading" secondItem="eQL-r4-bGN" secondAttribute="leading" id="bt7-om-kZq"/>
+                                                <constraint firstItem="648-wK-OqI" firstAttribute="top" secondItem="eQL-r4-bGN" secondAttribute="top" id="hc2-TN-ATm"/>
+                                                <constraint firstAttribute="trailing" secondItem="648-wK-OqI" secondAttribute="trailing" id="o7q-Nh-6sm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="pCi-xY-U4w" id="A2b-Fx-OXb"/>
                                     <outlet property="delegate" destination="pCi-xY-U4w" id="PrO-He-TZl"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytb-uo-1z2">
+                                <rect key="frame" x="280" y="269" width="41" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="EhQ-cC-ulm"/>
+                                </constraints>
+                                <state key="normal" image="Female_Symbol"/>
+                                <connections>
+                                    <action selector="FemaleButtonPressed:" destination="pCi-xY-U4w" eventType="touchUpInside" id="Bmn-He-p0a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9I0-as-J4K">
+                                <rect key="frame" x="17" y="269" width="45" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Tdz-Ie-FJw"/>
+                                </constraints>
+                                <state key="normal" image="Male_Symbol"/>
+                                <connections>
+                                    <action selector="maleButtonPressed:" destination="pCi-xY-U4w" eventType="touchUpInside" id="hCu-us-01f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9I0-as-J4K" firstAttribute="leading" secondItem="oVm-D6-4hQ" secondAttribute="leading" constant="17" id="13S-KB-Dzd"/>
+                            <constraint firstItem="bXO-gQ-Yjp" firstAttribute="top" secondItem="Ytb-uo-1z2" secondAttribute="bottom" constant="14" id="8aU-MK-qwe"/>
                             <constraint firstItem="bXO-gQ-Yjp" firstAttribute="leading" secondItem="oVm-D6-4hQ" secondAttribute="leadingMargin" id="BmL-nQ-OUN"/>
+                            <constraint firstItem="Ytb-uo-1z2" firstAttribute="leading" secondItem="9I0-as-J4K" secondAttribute="trailing" constant="238" id="LtZ-3m-D1y"/>
                             <constraint firstItem="Lxi-zo-ntC" firstAttribute="top" secondItem="vkp-KY-w3p" secondAttribute="bottom" constant="8" id="MRm-Sz-VWf"/>
                             <constraint firstItem="3PR-YM-ref" firstAttribute="top" secondItem="bXO-gQ-Yjp" secondAttribute="bottom" constant="8" id="Tly-bR-tNl"/>
                             <constraint firstItem="bXO-gQ-Yjp" firstAttribute="trailing" secondItem="oVm-D6-4hQ" secondAttribute="trailingMargin" id="TqD-ie-hnj"/>
                             <constraint firstItem="bXO-gQ-Yjp" firstAttribute="top" secondItem="Lxi-zo-ntC" secondAttribute="bottom" constant="14" id="YAl-3G-3Yx"/>
                             <constraint firstItem="Lxi-zo-ntC" firstAttribute="centerX" secondItem="oVm-D6-4hQ" secondAttribute="centerX" id="bfN-05-kXI"/>
+                            <constraint firstItem="Ytb-uo-1z2" firstAttribute="leading" secondItem="Lxi-zo-ntC" secondAttribute="trailing" id="g4e-8Y-ZY6"/>
+                            <constraint firstItem="bXO-gQ-Yjp" firstAttribute="top" secondItem="9I0-as-J4K" secondAttribute="bottom" constant="14" id="gBY-ju-Cwj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ytb-uo-1z2" secondAttribute="trailing" constant="-17" id="klW-OH-82g"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LtZ-3m-D1y"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Ftn-Jv-DJ2">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="MXT-oP-4cy">
@@ -263,6 +317,8 @@
     </scenes>
     <resources>
         <image name="Empty_Check_Box" width="32" height="32"/>
+        <image name="Female_Symbol" width="34" height="49"/>
+        <image name="Male_Symbol" width="45" height="38"/>
         <image name="Paw" width="32" height="43"/>
     </resources>
 </document>

@@ -61,4 +61,8 @@ extension TaskController {
         task.managedObjectContext?.deleteObject(task)
         saveTask()
     }
+    
+    func updateCheckValueChanged(task: Task, selected: Bool) {
+        task.isChecked = selected
+    }
 }

@@ -46,6 +46,11 @@ extension DogController {
         saveDog()
     }
     
+    func updateGenderButtonPressed(dog: Dog, selected: Bool) {
+        dog.sex = selected
+        saveDog()
+    }
+    
     func saveDog() {
         let context = Stack.sharedStack.managedObjectContext
         

@@ -31,7 +31,9 @@ extension DogDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
-        //        let task = TaskController.sharedController.tasks[indexPath.row]
+        let task = TaskController.sharedController.tasks[indexPath.row]
+        cell.updateTaskCell(task)
+        cell.delegate = self
         
         return cell
     }
@@ -74,6 +76,32 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func maleButtonPressed(sender: AnyObject) {
+        let isSelected = sender.selected
+        
+        guard let dog = dog else { return }
+        
+        DogController.sharedController.updateGenderButtonPressed(dog, selected: isSelected)
+        maleColorUpdates()
+    }
+    
+    @IBAction func FemaleButtonPressed(sender: AnyObject) {
+        let isSelected = sender.selected
+        
+        guard let dog = dog else { return }
+        
+        DogController.sharedController.updateGenderButtonPressed(dog, selected: isSelected)
+        femaleColorUpdates()
+    }
+    
+    func maleColorUpdates() {
+        navigationController?.navigationBar.barTintColor = UIColor.lightBlue()
+    }
+    
+    func femaleColorUpdates() {
+        navigationController?.navigationBar.barTintColor = UIColor.lightPink()
+    }
 }
 
 extension DogDetailViewController {
@@ -85,8 +113,25 @@ extension DogDetailViewController {
         if let image = dog.image {
             dogProfileImage.image = UIImage(data: image)
         }
+        
+        if dog.sex == true {
+            navigationController?.navigationBar.barTintColor = UIColor.lightBlue()
+        } else {
+            navigationController?.navigationBar.barTintColor = UIColor.lightPink()
+        }
     }
 }
+
+extension DogDetailViewController: TaskTableViewCellDelegate {
+    func checkValueChanged(cell: TaskTableViewCell, selection: Bool) {
+        guard let task = cell.task else { return }
+        
+        TaskController.sharedController.updateCheckValueChanged(task, selected: selection)
+        tableView.reloadData()
+    }
+}
+
+
 
 
 

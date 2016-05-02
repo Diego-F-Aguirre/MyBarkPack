@@ -11,6 +11,9 @@ import UIKit
 class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var checkBoxButton: UIButton!
+    
+    var task: Task?
+    var delegate: TaskTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +22,27 @@ class TaskTableViewCell: UITableViewCell {
 }
 
 extension TaskTableViewCell {
-    func updateTaskCell(task: Task) {
-        
+    @IBAction func checkBoxButtonPressed(sender: AnyObject) {
+        delegate?.checkValueChanged(self, selection: checkBoxButton.selected)
     }
+    
+}
+
+extension TaskTableViewCell {
+    func updateTaskCell(task: Task) {
+        self.task = task
+        
+        titleLabel.text = task.title
+        checkBoxButton.selected = task.isChecked.boolValue
+        
+        if task.isChecked.boolValue {
+            self.checkBoxButton.imageView?.image = UIImage(named: "Empty_Check_Box")
+        } else {
+            self.checkBoxButton.imageView?.image = UIImage(named: "Checked_Box")
+        }
+    }
+}
+
+protocol TaskTableViewCellDelegate: class {
+    func checkValueChanged(cell: TaskTableViewCell, selection: Bool)
 }

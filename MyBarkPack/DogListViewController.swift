@@ -12,10 +12,18 @@ class DogListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = UIColor.lightBlue()
         tableView.reloadData()
     }
+    
+    enum Gender: String {
+        case Male
+        case Female
+    }
+    
+    var dogGender: Gender?
 }
 
 extension DogListViewController: UITableViewDataSource {
@@ -50,8 +58,23 @@ extension DogListViewController {
         var inputNameTextField: UITextField?
         var inputAgeTextField: UITextField?
         
-        let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
-            
+        let maleAction =  UIAlertAction(title: "Male", style: .Default) { (action) in
+            self.dogGender = .Male
+            if let inputNameTextField = inputNameTextField,
+                text = inputNameTextField.text where text != "",
+                let inputAgeTextField = inputAgeTextField,
+                age = Int(inputAgeTextField.text!) where age != 0
+            {
+                //                alertController.actions[0].enabled = true
+                confirmationHandler(text, age)
+            } else {
+                print("No name or age entered")
+                //                alertController.actions[0].enabled = false
+            }
+        }
+        
+        let femaleAction = UIAlertAction(title: "Female", style: .Default) { (action) in
+            self.dogGender = .Female
             if let inputNameTextField = inputNameTextField,
                 text = inputNameTextField.text where text != "",
                 let inputAgeTextField = inputAgeTextField,
@@ -80,7 +103,8 @@ extension DogListViewController {
             inputAgeTextField = textField
         }
         
-        alertController.addAction(okAction)
+        alertController.addAction(maleAction)
+        alertController.addAction(femaleAction)
         alertController.addAction(cancelAction)
         
         return alertController
@@ -88,7 +112,11 @@ extension DogListViewController {
     
     @IBAction func addDogButtonPressed(sender: AnyObject) {
         let alert = textBoxAlert(title: "Add your dog!", message: "Enter your dog's information below") { name, age in
-            DogController.sharedController.createDog(name, age: Int(age), sex: true, image: nil)
+            if self.dogGender == .Male {
+                DogController.sharedController.createDog(name, age: Int(age), sex: true, image: nil)
+            } else {
+                DogController.sharedController.createDog(name, age: Int(age), sex: false, image: nil)
+            }
             self.tableView.reloadData()
         }
         presentViewController(alert, animated: true, completion: nil)
