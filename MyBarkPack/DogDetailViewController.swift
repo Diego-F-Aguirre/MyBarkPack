@@ -12,13 +12,13 @@ class DogDetailViewController: UIViewController {
     @IBOutlet weak var dogProfileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    var dog: Dog?
+    static var dog: Dog?
     var task: Task?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let dog = dog else { return }
+        guard let dog = DogDetailViewController.dog else { return }
         updateViewWithDog(dog)
     }
 }
@@ -37,6 +37,11 @@ extension DogDetailViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let header = SectionHeaderTableViewCell()
+        return header.section.count
+    }
 }
 
 extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCellDelegate {
@@ -52,9 +57,18 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCe
         guard let header = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as? SectionHeaderTableViewCell else { return UITableViewCell() }
         
         header.delegate = self
-        header.sectionTitleLabel.text = "Exercise"
+        header.sectionTitleLabel.text = header.section[section]
+        
         
         return header
+    }
+    
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 25.0
+//    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 60.0
     }
     
     func didSelectUserHeaderTableViewCell(selected: Bool, sectionHeader: SectionHeaderTableViewCell) {
@@ -84,29 +98,11 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
                 return
         }
         
-        guard let dog = self.dog else { return }
+        guard let dog = DogDetailViewController.dog else { return }
         DogController.sharedController.updateDog(dog, newImageData: imageData)
         self.dogProfileImage.image = UIImage(data: dog.image!)
         
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func maleButtonPressed(sender: AnyObject) {
-        let isSelected = sender.selected
-        
-        guard let dog = dog else { return }
-        
-        DogController.sharedController.updateGenderButtonPressed(dog, selected: isSelected)
-        maleColorUpdates()
-    }
-    
-    @IBAction func FemaleButtonPressed(sender: AnyObject) {
-        let isSelected = sender.selected
-        
-        guard let dog = dog else { return }
-        
-        DogController.sharedController.updateGenderButtonPressed(dog, selected: isSelected)
-        femaleColorUpdates()
     }
     
     func maleColorUpdates() {
@@ -120,7 +116,7 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
 
 extension DogDetailViewController {
     func updateViewWithDog(dog: Dog) {
-        if let dog = self.dog {
+        if let dog = DogDetailViewController.dog {
             self.title = dog.name
         }
         
@@ -129,9 +125,9 @@ extension DogDetailViewController {
         }
         
         if dog.sex == true {
-            navigationController?.navigationBar.barTintColor = UIColor.lightBlue()
+            maleColorUpdates()
         } else {
-            navigationController?.navigationBar.barTintColor = UIColor.lightPink()
+            femaleColorUpdates()
         }
     }
     
