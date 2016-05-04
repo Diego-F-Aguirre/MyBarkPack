@@ -25,14 +25,38 @@ class DogDetailViewController: UIViewController {
 
 extension DogDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  TaskController.sharedController.tasks.count
+        
+        var meals: [Task] = []
+        var exercise: [Task] = []
+        var health: [Task] = []
+        var training: [Task] = []
+        var misc: [Task] = []
+        
+        switch section {
+        case 0:
+            return meals.count
+        case 1:
+            return exercise.count
+        case 2:
+            return health.count
+        case 3:
+            return training.count
+        case 4:
+            return misc.count
+        default:
+            return 0
+        }
+        return section
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
+        if indexPath.section == 0 {
+        
         let task = TaskController.sharedController.tasks[indexPath.row]
         cell.updateTaskCell(task)
+        }
         cell.delegate = self
         
         return cell
@@ -42,6 +66,10 @@ extension DogDetailViewController: UITableViewDataSource {
         let header = SectionHeaderTableViewCell()
         return header.section.count
     }
+    
+//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        <#code#>
+//    }
 }
 
 extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCellDelegate {
@@ -59,7 +87,6 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCe
         header.delegate = self
         header.sectionTitleLabel.text = header.section[section]
         
-        
         return header
     }
     
@@ -68,8 +95,9 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCe
     }
     
     func didSelectUserHeaderTableViewCell(selected: Bool, sectionHeader: SectionHeaderTableViewCell) {
-        TaskController.sharedController.createTask("new item", isComplete: false)
-        print("Cell selected")
+        
+            TaskController.sharedController.createTask("new item", isComplete: false)
+            print("Cell selected")
     }
 }
 
