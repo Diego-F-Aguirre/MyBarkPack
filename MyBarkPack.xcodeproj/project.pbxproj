@@ -28,6 +28,7 @@
 		BC46CF1F1CCDE0FA006BAFC0 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF1E1CCDE0FA006BAFC0 /* TaskController.swift */; };
 		BCC41CF91CD5242D0099A326 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CF81CD5242D0099A326 /* CircleView.swift */; };
 		BCC41CFB1CD525B60099A326 /* LabelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */; };
+		BCC41D001CD955C70099A326 /* SectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CFF1CD955C70099A326 /* SectionHeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		BC46CF1E1CCDE0FA006BAFC0 /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		BCC41CF81CD5242D0099A326 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelContainerView.swift; sourceTree = "<group>"; };
+		BCC41CFF1CD955C70099A326 /* SectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				BC46CF161CCD9BC0006BAFC0 /* DogTableViewCell.swift */,
 				BC46CF1A1CCDD191006BAFC0 /* DogDetailViewController.swift */,
 				BC46CF1C1CCDE015006BAFC0 /* TaskTableViewCell.swift */,
+				BCC41CFF1CD955C70099A326 /* SectionHeaderTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC46CF1B1CCDD191006BAFC0 /* DogDetailViewController.swift in Sources */,
+				BCC41D001CD955C70099A326 /* SectionHeaderTableViewCell.swift in Sources */,
 				BC46CF0B1CCB6E81006BAFC0 /* Dog+CoreDataProperties.swift in Sources */,
 				BC46CF1D1CCDE015006BAFC0 /* TaskTableViewCell.swift in Sources */,
 				BC46CF0F1CCB790C006BAFC0 /* Image.swift in Sources */,

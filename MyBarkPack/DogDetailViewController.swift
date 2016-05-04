@@ -39,13 +39,27 @@ extension DogDetailViewController: UITableViewDataSource {
     }
 }
 
-extension DogDetailViewController: UITableViewDelegate {
+extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCellDelegate {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let task = TaskController.sharedController.tasks[indexPath.row]
             TaskController.sharedController.deleteTask(task)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as? SectionHeaderTableViewCell else { return UITableViewCell() }
+        
+        header.delegate = self
+        header.sectionTitleLabel.text = "Exercise"
+        
+        return header
+    }
+    
+    func didSelectUserHeaderTableViewCell(selected: Bool, sectionHeader: SectionHeaderTableViewCell) {
+        TaskController.sharedController.createTask("new item", isComplete: false)
+        print("Cell selected")
     }
 }
 
@@ -119,6 +133,12 @@ extension DogDetailViewController {
         } else {
             navigationController?.navigationBar.barTintColor = UIColor.lightPink()
         }
+    }
+    
+    func updateViewWithTask(task: Task) {
+//        if let task = self.task {
+//            if let
+//        }
     }
 }
 
