@@ -63,10 +63,6 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCe
         return header
     }
     
-//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 25.0
-//    }
-    
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 60.0
     }
@@ -85,9 +81,29 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
     @IBAction func cameraButtonPressed(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        let actionSheet = UIAlertController(title: "Pick or take a Photo!", message: nil, preferredStyle: .ActionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default) { (_) in
+            imagePicker.sourceType = .PhotoLibrary
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        let cameraAction = UIAlertAction(title: "Camera", style: .Default) { (_) in
+            imagePicker.sourceType = .Camera
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        
+        actionSheet.addAction(cancelAction)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            actionSheet.addAction(cameraAction)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            actionSheet.addAction(photoLibraryAction)
+        }
+
+        self.presentViewController(actionSheet, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
