@@ -128,12 +128,15 @@ extension DogListViewController {
 extension DogListViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toDogDetail" {
-            // Ask Michael or Nathan if this is exceptable especially making the top Dog? a static
-            guard let /*destinationVC = segue.destinationViewController as? DogDetailViewController, */
-                indexPath = tableView.indexPathForSelectedRow else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow,
+            dogDetailVC = segue.destinationViewController as? DogDetailViewController else { return }
             
-            let dog = DogController.sharedController.dogs[indexPath.row]
-            DogDetailViewController.dog = dog
+           let dog = DogController.sharedController.dogs[indexPath.row]
+            
+//            let sectionHeaderTableView = SectionHeaderTableViewCell()
+//            
+//            sectionHeaderTableView.dog = dog
+            dogDetailVC.dog = dog
         }
     }
 }

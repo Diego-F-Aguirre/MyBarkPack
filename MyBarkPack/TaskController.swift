@@ -23,8 +23,11 @@ class TaskController {
 }
 
 extension TaskController {
-    func createTask(title: String, isComplete: Bool) {
-        let _ = Task(title: title, isComplete: isComplete)
+    func createTask(title: String, dog: Dog, type: Type, isComplete: Bool) {
+        let task = Task(title: title, type: type, isComplete: isComplete)
+        
+        task?.dog = dog
+        
         saveTask()
     }
     
@@ -34,7 +37,7 @@ extension TaskController {
         var tasks: [Task] = []
         
         do {
-           tasks = try dog.managedObjectContext?.executeFetchRequest(request) as! [Task]
+            tasks = try dog.managedObjectContext?.executeFetchRequest(request) as! [Task]
         } catch let error as NSError {
             print("failed \(error.localizedDescription) in \(#function)")
             return nil
@@ -42,16 +45,11 @@ extension TaskController {
         return tasks
     }
     
-//    func updateTask(task: Task, newTitle: String, isComplete: Bool) {
-//        task.title = newTitle
-//        task.isChecked = isComplete.boolValue
-//    }
-    
     func saveTask() {
         let context = Stack.sharedStack.managedObjectContext
         
         do {
-          let _ = try context.save()
+            let _ = try context.save()
         } catch let error as NSError {
             print("failed \(error.localizedDescription) in \(#function)")
         }
@@ -63,6 +61,7 @@ extension TaskController {
     }
     
     func updateCheckValueChanged(task: Task, selected: Bool) {
-        task.isChecked = selected
+        task.isChecked = !task.isChecked.boolValue
+        saveTask()
     }
 }

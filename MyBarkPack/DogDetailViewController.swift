@@ -12,13 +12,13 @@ class DogDetailViewController: UIViewController {
     @IBOutlet weak var dogProfileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    static var dog: Dog?
+    var dog: Dog?
     var task: Task?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let dog = DogDetailViewController.dog else { return }
+        guard let dog = self.dog else { return }
         updateViewWithDog(dog)
     }
 }
@@ -26,50 +26,64 @@ class DogDetailViewController: UIViewController {
 extension DogDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var meals: [Task] = []
-        var exercise: [Task] = []
-        var health: [Task] = []
-        var training: [Task] = []
-        var misc: [Task] = []
-        
-        switch section {
-        case 0:
-            return meals.count
-        case 1:
-            return exercise.count
-        case 2:
-            return health.count
-        case 3:
-            return training.count
-        case 4:
-            return misc.count
-        default:
+        if let dog = self.dog {
+            switch section {
+            case 0:
+                return dog.tasks.filter({$0.type == String(Type.Meals)}).count
+            case 1:
+                return dog.tasks.filter({$0.type == String(Type.Exercise)}).count
+            case 2:
+                return dog.tasks.filter({$0.type == String(Type.Health)}).count
+            case 3:
+                return dog.tasks.filter({$0.type == String(Type.Training)}).count
+            case 4:
+                return dog.tasks.filter({$0.type == String(Type.Misc)}).count
+            default:
+                return 0
+            }
+        } else {
             return 0
         }
-        return section
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
-        if indexPath.section == 0 {
-        
-        let task = TaskController.sharedController.tasks[indexPath.row]
-        cell.updateTaskCell(task)
-        }
         cell.delegate = self
         
+        if let dog = self.dog {
+            switch indexPath.section {
+            case 0:
+                let task = dog.tasks.filter({$0.type == String(Type.Meals)})[indexPath.row] as? Task
+                cell.updateTaskCell(task, dog: dog)
+                return cell
+            case 1:
+                let task = dog.tasks.filter({$0.type == String(Type.Exercise)})[indexPath.row] as? Task
+                cell.updateTaskCell(task, dog: dog)
+                return cell
+            case 2:
+                let task = dog.tasks.filter({$0.type == String(Type.Health)})[indexPath.row] as? Task
+                cell.updateTaskCell(task, dog: dog)
+                return cell
+            case 3:
+                let task = dog.tasks.filter({$0.type == String(Type.Training)})[indexPath.row] as? Task
+                cell.updateTaskCell(task, dog: dog)
+                return cell
+            case 4:
+                let task = dog.tasks.filter({$0.type == String(Type.Misc)})[indexPath.row] as? Task
+                cell.updateTaskCell(task, dog: dog)
+                return cell
+            default:
+                return cell
+            }
+        }
         return cell
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let header = SectionHeaderTableViewCell()
-        return header.section.count
+        return header.sections.count
     }
-    
-//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        <#code#>
-//    }
 }
 
 extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCellDelegate {
@@ -85,19 +99,63 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCe
         guard let header = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as? SectionHeaderTableViewCell else { return UITableViewCell() }
         
         header.delegate = self
-        header.sectionTitleLabel.text = header.section[section]
+        header.updateDogWithGender(dog)
         
-        return header
+        header.type = header.sections[section]
+        
+        header.sectionTitleLabel.text = header.sections[section].rawValue
+        
+        return header 
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 60.0
     }
     
-    func didSelectUserHeaderTableViewCell(selected: Bool, sectionHeader: SectionHeaderTableViewCell) {
+    func didSelectUserHeaderTableViewCell(sectionHeader: SectionHeaderTableViewCell, selected: Bool, type: Type) {
+        let alertController = UIAlertController(title: "Enter a task", message: nil, preferredStyle: .Alert)
+        alertController.view.backgroundColor = UIColor.lightBlue()
         
-            TaskController.sharedController.createTask("new item", isComplete: false)
-            print("Cell selected")
+        var inputTaskTextField: UITextField?
+        
+        let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            guard let inputTaskTextField = inputTaskTextField,
+                text = inputTaskTextField.text else { return }
+            
+            if let type = sectionHeader.type {
+                
+                guard let dog = self.dog else { return }
+                
+                switch type {
+                case .Meals:
+                    TaskController.sharedController.createTask(text, dog: dog, type: .Meals, isComplete: false)
+                case .Exercise:
+                    TaskController.sharedController.createTask(text, dog: dog, type: .Exercise, isComplete: false)
+                case .Health:
+                    TaskController.sharedController.createTask(text, dog: dog, type: .Health, isComplete: false)
+                case .Training:
+                    TaskController.sharedController.createTask(text, dog: dog, type: .Training, isComplete: false)
+                case .Misc:
+                    TaskController.sharedController.createTask(text, dog: dog, type: .Misc, isComplete: false)
+                }
+            }
+            self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        alertController.addTextFieldWithConfigurationHandler { textField in
+            textField.placeholder = "Enter a task"
+            textField.textAlignment =  NSTextAlignment.Center
+            inputTaskTextField = textField
+        }
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+        print("Cell selected")
     }
 }
 
@@ -130,7 +188,7 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
         if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
             actionSheet.addAction(photoLibraryAction)
         }
-
+        
         self.presentViewController(actionSheet, animated: true, completion: nil)
     }
     
@@ -142,7 +200,7 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
                 return
         }
         
-        guard let dog = DogDetailViewController.dog else { return }
+        guard let dog = self.dog else { return }
         DogController.sharedController.updateDog(dog, newImageData: imageData)
         self.dogProfileImage.image = UIImage(data: dog.image!)
         
@@ -160,7 +218,7 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
 
 extension DogDetailViewController {
     func updateViewWithDog(dog: Dog) {
-        if let dog = DogDetailViewController.dog {
+        if let dog = self.dog {
             self.title = dog.name
         }
         
@@ -173,12 +231,6 @@ extension DogDetailViewController {
         } else {
             femaleColorUpdates()
         }
-    }
-    
-    func updateViewWithTask(task: Task) {
-//        if let task = self.task {
-//            if let
-//        }
     }
 }
 

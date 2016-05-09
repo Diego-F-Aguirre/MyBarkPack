@@ -9,36 +9,41 @@
 import UIKit
 
 protocol SectionHeaderTableViewCellDelegate {
-    func didSelectUserHeaderTableViewCell(selected: Bool, sectionHeader: SectionHeaderTableViewCell)
+    func didSelectUserHeaderTableViewCell(sectionHeader: SectionHeaderTableViewCell, selected: Bool, type: Type)
 }
 
 class SectionHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var labelContainerView: LabelContainerView!
     @IBOutlet weak var sectionTitleLabel: UILabel!
+    @IBOutlet weak var plusButton: UIButton!
+    
+    var type: Type?
     
     var delegate: SectionHeaderTableViewCellDelegate?
-    var dog: Dog? {
-        return DogDetailViewController.dog
-    }
+    var dog: Dog?
     
-    let section = ["Meals", "Exercise", "Health", "Training", "Misc"]
-
+    let sections = [Type.Meals, Type.Exercise, Type.Health, Type.Training, Type.Misc]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        guard let dog = dog else { return }
-        if dog.sex == true {
-            labelContainerView.backgroundColor = UIColor.lightBlue()
-        } else {
-            labelContainerView.backgroundColor = UIColor.lightPink()
-        }
-        
     }
 }
 
 extension SectionHeaderTableViewCell {
     @IBAction func plusButtonPressed(sender: AnyObject) {
-     delegate?.didSelectUserHeaderTableViewCell(true, sectionHeader: self)
+        if let type = type {
+            delegate?.didSelectUserHeaderTableViewCell(self, selected: plusButton.selected, type: type )
+        }
+    }
+    
+    func updateDogWithGender(dog: Dog?) {
+        guard let dog = dog else { return }
+        
+        if dog.sex == true {
+            labelContainerView.backgroundColor = UIColor.lightBlue()
+        } else {
+            labelContainerView.backgroundColor = UIColor.lightPink()
+        }
     }
 }
+

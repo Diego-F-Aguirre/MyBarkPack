@@ -4,75 +4,49 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBarkPack/DogListViewController.swift"
-            timestampString = "483918150.702438"
+            filePath = "MyBarkPack/DogDetailViewController.swift"
+            timestampString = "484520960.689186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "textBoxAlert(title:message:confirmationHandler:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyBarkPack.DogListViewController.(textBoxAlert (title : Swift.String, message : Swift.String, confirmationHandler : (Swift.String, Swift.Int) -&gt; ()) -&gt; __ObjC.UIAlertController).(closure #1)"
-                  moduleName = "MyBarkPack"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/diegoaguirre/Desktop/Development/DevMountain_AsyncBeta/Hackathon/MyBarkPack/MyBarkPack/DogListViewController.swift"
-                  timestampString = "484090074.50429"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyBarkPack.DogListViewController.(textBoxAlert (title : Swift.String, message : Swift.String, confirmationHandler : (Swift.String, Swift.Int) -&gt; ()) -&gt; __ObjC.UIAlertController).(closure #1)"
-                  moduleName = "MyBarkPack"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/diegoaguirre/Desktop/Development/DevMountain_AsyncBeta/Hackathon/MyBarkPack/MyBarkPack/DogListViewController.swift"
-                  timestampString = "484090074.504465"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "168">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBarkPack/DogListViewController.swift"
-            timestampString = "483921550.191704"
+            filePath = "MyBarkPack/TaskTableViewCell.swift"
+            timestampString = "484525845.213206"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "checkBoxButtonPressed(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBarkPack/DogDetailViewController.swift"
+            timestampString = "484525861.063402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -83,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBarkPack/DogDetailViewController.swift"
-            timestampString = "484089955.542542"
+            filePath = "MyBarkPack/TaskController.swift"
+            timestampString = "484526883.739627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "updateCheckValueChanged(_:selected:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -100,28 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBarkPack/DogDetailViewController.swift"
-            timestampString = "484089955.542542"
+            timestampString = "484526708.208756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBarkPack/DogDetailViewController.swift"
-            timestampString = "484089955.542542"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "checkValueChanged(_:selection:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--My Doggies-->
+        <!--My Bark Pack-->
         <scene sceneID="WZW-oN-zfR">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="J9t-nr-Hjw" customClass="DogListViewController" customModule="MyBarkPack" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,7 +129,7 @@
                             <constraint firstItem="Ri5-2y-gZ1" firstAttribute="top" secondItem="U9r-5r-Kau" secondAttribute="bottom" id="lLd-bN-vAR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Doggies" id="0OV-pi-P3f">
+                    <navigationItem key="navigationItem" title="My Bark Pack" id="0OV-pi-P3f">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6DT-Qt-WKX">
                             <connections>
                                 <action selector="addDogButtonPressed:" destination="J9t-nr-Hjw" id="Yg8-q7-diM"/>
@@ -168,7 +168,7 @@
                                 <rect key="frame" x="16" y="326" width="288" height="234"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="dew-T5-YdR" customClass="TaskTableViewCell" customModule="MyBarkPack" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="dew-T5-YdR" customClass="TaskTableViewCell" customModule="MyBarkPack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dew-T5-YdR" id="72p-v8-UoG">
@@ -257,6 +257,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelContainerView" destination="648-wK-OqI" id="Nyi-vT-bxb"/>
+                                            <outlet property="plusButton" destination="7db-y7-b5g" id="bOt-Fs-VAv"/>
                                             <outlet property="sectionTitleLabel" destination="sp5-PP-3sT" id="NaM-Tz-X9g"/>
                                         </connections>
                                     </tableViewCell>
