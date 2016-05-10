@@ -14,7 +14,8 @@ class TaskTableViewCell: UITableViewCell {
     
     var task: Task?
     var delegate: TaskTableViewCellDelegate?
-
+    var dog: Dog?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,20 +26,39 @@ extension TaskTableViewCell {
     @IBAction func checkBoxButtonPressed(sender: AnyObject) {
         delegate?.checkValueChanged(self, selection: checkBoxButton.selected)
     }
-    
 }
 
 extension TaskTableViewCell {
-    func updateTaskCell(task: Task) {
-        self.task = task
+    func updateTaskCell(task: Task?, dog: Dog?) {
         
-        titleLabel.text = task.title
-        checkBoxButton.selected = task.isChecked.boolValue
-        
-        if task.isChecked.boolValue {
-            self.checkBoxButton.imageView?.image = UIImage(named: "Empty_Check_Box")
-        } else {
-            self.checkBoxButton.imageView?.image = UIImage(named: "Checked_Box")
+        if let dog = dog {
+            if let task = task {
+                self.task = task
+                
+                titleLabel.text = task.title
+                checkBoxButton.selected = task.isChecked.boolValue
+                
+                switch dog.sex {
+                case true:
+                    if task.isChecked.boolValue == false {
+                        titleLabel.textColor = UIColor.blackColor()
+                        self.checkBoxButton.setImage(UIImage(named: "Empty_Check_Box"), forState: .Normal)
+                    } else if task.isChecked.boolValue == true {
+                        titleLabel.textColor = UIColor.grayColor()
+                        self.checkBoxButton.setImage(UIImage(named: "Checked_Box"), forState: .Normal)
+                    }
+                case false:
+                    if task.isChecked.boolValue == false {
+                        titleLabel.textColor = UIColor.blackColor()
+                        self.checkBoxButton.setImage(UIImage(named: "Pink_Empty_Check_Box"), forState: .Normal)
+                    } else if task.isChecked.boolValue == true {
+                        titleLabel.textColor = UIColor.grayColor()
+                        self.checkBoxButton.setImage(UIImage(named: "Pink_Checked_Box"), forState: .Normal)
+                    }
+                default:
+                    break
+                }
+            }
         }
     }
 }

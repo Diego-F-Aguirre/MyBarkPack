@@ -113,9 +113,11 @@ extension DogListViewController {
     @IBAction func addDogButtonPressed(sender: AnyObject) {
         let alert = textBoxAlert(title: "Add your dog!", message: "Enter your dog's information below") { name, age in
             if self.dogGender == .Male {
-                DogController.sharedController.createDog(name, age: Int(age), sex: true, image: nil)
+                let image = UIImage(named: "Male_Silhouette")
+                DogController.sharedController.createDog(name, age: Int(age), sex: true, image: UIImagePNGRepresentation(image!))
             } else {
-                DogController.sharedController.createDog(name, age: Int(age), sex: false, image: nil)
+                let image = UIImage(named: "Female_Silhouette")
+                DogController.sharedController.createDog(name, age: Int(age), sex: false, image: UIImagePNGRepresentation(image!))
             }
             self.tableView.reloadData()
         }
@@ -126,11 +128,15 @@ extension DogListViewController {
 extension DogListViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toDogDetail" {
-            guard let destinationVC = segue.destinationViewController as? DogDetailViewController,
-                indexPath = tableView.indexPathForSelectedRow else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow,
+            dogDetailVC = segue.destinationViewController as? DogDetailViewController else { return }
             
-            let dog = DogController.sharedController.dogs[indexPath.row]
-            destinationVC.dog = dog
+           let dog = DogController.sharedController.dogs[indexPath.row]
+            
+//            let sectionHeaderTableView = SectionHeaderTableViewCell()
+//            
+//            sectionHeaderTableView.dog = dog
+            dogDetailVC.dog = dog
         }
     }
 }

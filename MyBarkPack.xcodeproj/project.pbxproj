@@ -13,8 +13,6 @@
 		BC46CEF51CCB68CB006BAFC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC46CEF31CCB68CB006BAFC0 /* LaunchScreen.storyboard */; };
 		BC46CF011CCB6947006BAFC0 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF001CCB6947006BAFC0 /* Stack.swift */; };
 		BC46CF041CCB6966006BAFC0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF021CCB6966006BAFC0 /* Model.xcdatamodeld */; };
-		BC46CF091CCB6E81006BAFC0 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF051CCB6E81006BAFC0 /* Task+CoreDataProperties.swift */; };
-		BC46CF0A1CCB6E81006BAFC0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF061CCB6E81006BAFC0 /* Task.swift */; };
 		BC46CF0B1CCB6E81006BAFC0 /* Dog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF071CCB6E81006BAFC0 /* Dog+CoreDataProperties.swift */; };
 		BC46CF0C1CCB6E81006BAFC0 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF081CCB6E81006BAFC0 /* Dog.swift */; };
 		BC46CF0F1CCB790C006BAFC0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF0E1CCB790C006BAFC0 /* Image.swift */; };
@@ -26,8 +24,11 @@
 		BC46CF1B1CCDD191006BAFC0 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF1A1CCDD191006BAFC0 /* DogDetailViewController.swift */; };
 		BC46CF1D1CCDE015006BAFC0 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF1C1CCDE015006BAFC0 /* TaskTableViewCell.swift */; };
 		BC46CF1F1CCDE0FA006BAFC0 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CF1E1CCDE0FA006BAFC0 /* TaskController.swift */; };
+		BC527D6E1CDBF1B800C19F31 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC527D6C1CDBF1B800C19F31 /* Task+CoreDataProperties.swift */; };
+		BC527D6F1CDBF1B800C19F31 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC527D6D1CDBF1B800C19F31 /* Task.swift */; };
 		BCC41CF91CD5242D0099A326 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CF81CD5242D0099A326 /* CircleView.swift */; };
 		BCC41CFB1CD525B60099A326 /* LabelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */; };
+		BCC41D001CD955C70099A326 /* SectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CFF1CD955C70099A326 /* SectionHeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +40,6 @@
 		BC46CEF61CCB68CB006BAFC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC46CF001CCB6947006BAFC0 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		BC46CF031CCB6966006BAFC0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		BC46CF051CCB6E81006BAFC0 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BC46CF061CCB6E81006BAFC0 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		BC46CF071CCB6E81006BAFC0 /* Dog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC46CF081CCB6E81006BAFC0 /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		BC46CF0E1CCB790C006BAFC0 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -52,8 +51,11 @@
 		BC46CF1A1CCDD191006BAFC0 /* DogDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
 		BC46CF1C1CCDE015006BAFC0 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		BC46CF1E1CCDE0FA006BAFC0 /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		BC527D6C1CDBF1B800C19F31 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BC527D6D1CDBF1B800C19F31 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		BCC41CF81CD5242D0099A326 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelContainerView.swift; sourceTree = "<group>"; };
+		BCC41CFF1CD955C70099A326 /* SectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				BC46CF161CCD9BC0006BAFC0 /* DogTableViewCell.swift */,
 				BC46CF1A1CCDD191006BAFC0 /* DogDetailViewController.swift */,
 				BC46CF1C1CCDE015006BAFC0 /* TaskTableViewCell.swift */,
+				BCC41CFF1CD955C70099A326 /* SectionHeaderTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -125,8 +128,8 @@
 		BC46CEFE1CCB6922006BAFC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC46CF061CCB6E81006BAFC0 /* Task.swift */,
 				BC46CF081CCB6E81006BAFC0 /* Dog.swift */,
+				BC527D6D1CDBF1B800C19F31 /* Task.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -134,8 +137,8 @@
 		BC46CEFF1CCB6929006BAFC0 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BC46CF051CCB6E81006BAFC0 /* Task+CoreDataProperties.swift */,
 				BC46CF071CCB6E81006BAFC0 /* Dog+CoreDataProperties.swift */,
+				BC527D6C1CDBF1B800C19F31 /* Task+CoreDataProperties.swift */,
 				BC46CF001CCB6947006BAFC0 /* Stack.swift */,
 				BC46CF021CCB6966006BAFC0 /* Model.xcdatamodeld */,
 			);
@@ -232,10 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC46CF1B1CCDD191006BAFC0 /* DogDetailViewController.swift in Sources */,
+				BCC41D001CD955C70099A326 /* SectionHeaderTableViewCell.swift in Sources */,
 				BC46CF0B1CCB6E81006BAFC0 /* Dog+CoreDataProperties.swift in Sources */,
 				BC46CF1D1CCDE015006BAFC0 /* TaskTableViewCell.swift in Sources */,
+				BC527D6E1CDBF1B800C19F31 /* Task+CoreDataProperties.swift in Sources */,
 				BC46CF0F1CCB790C006BAFC0 /* Image.swift in Sources */,
 				BC46CF171CCD9BC0006BAFC0 /* DogTableViewCell.swift in Sources */,
+				BC527D6F1CDBF1B800C19F31 /* Task.swift in Sources */,
 				BC46CF0C1CCB6E81006BAFC0 /* Dog.swift in Sources */,
 				BC46CF1F1CCDE0FA006BAFC0 /* TaskController.swift in Sources */,
 				BC46CF011CCB6947006BAFC0 /* Stack.swift in Sources */,
@@ -245,9 +251,7 @@
 				BCC41CFB1CD525B60099A326 /* LabelContainerView.swift in Sources */,
 				BCC41CF91CD5242D0099A326 /* CircleView.swift in Sources */,
 				BC46CEEB1CCB68CB006BAFC0 /* AppDelegate.swift in Sources */,
-				BC46CF0A1CCB6E81006BAFC0 /* Task.swift in Sources */,
 				BC46CF151CCB8142006BAFC0 /* AppearanceController.swift in Sources */,
-				BC46CF091CCB6E81006BAFC0 /* Task+CoreDataProperties.swift in Sources */,
 				BC46CF041CCB6966006BAFC0 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
