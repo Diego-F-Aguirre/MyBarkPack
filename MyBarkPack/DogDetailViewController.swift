@@ -14,6 +14,7 @@ class DogDetailViewController: UIViewController {
     
     var dog: Dog?
     var task: Task?
+    var loaded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +145,12 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
         
         header?.delegate = self
         header?.updateDogWithGender(dog)
+        if !loaded {
+            header?.runAnimation()
+            loaded = true
+        } else {
+            header?.toggleHiddenItems()
+        }
         
         header?.type = header?.sections[section]
         

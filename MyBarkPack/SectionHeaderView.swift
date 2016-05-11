@@ -22,6 +22,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var plusButton: UIButton!
     
     var type: Type?
+    var loaded: Bool = false
     
     weak var delegate: SectionHeaderViewDelegate?
     var dog: Dog?
@@ -30,8 +31,16 @@ class SectionHeaderView: UITableViewHeaderFooterView {
         super.awakeFromNib()
         sectionTitleLabel.hidden = true
         plusButton.hidden = true
+    }
+    
+    func runAnimation() {
         smallScale()
         springAnimation()
+    }
+    
+    func toggleHiddenItems() {
+        self.sectionTitleLabel.hidden = false
+        self.plusButton.hidden = false
     }
     
     let sections = [Type.Meals, Type.Exercise, Type.Health, Type.Training, Type.Misc]
@@ -61,9 +70,7 @@ extension SectionHeaderView {
         scaleAnimation.fromValue = NSValue(CGSize: CGSizeMake(0.0, 1.0))
         scaleAnimation.completionBlock = {(animation, finished) in
                 self.springAnimation()
-                self.sectionTitleLabel.hidden = false
-                self.plusButton.hidden = false
-            
+                self.toggleHiddenItems()
         }
         self.layer.pop_addAnimation(scaleAnimation, forKey: kSmallScaleAnimation)
     }
