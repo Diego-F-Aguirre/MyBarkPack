@@ -49,8 +49,6 @@ extension DogListViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let barHeight = self.navigationController?.navigationBar.bounds.height
-//        let viewHeight = self.view.bounds.height + 20
         return self.view.frame.height / 2 - 31
     }
 }
