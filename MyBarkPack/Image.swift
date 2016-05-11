@@ -14,7 +14,7 @@ class Image: UIImageView {
     private let kSpringAnimation = "springAnimation"
     
     override func awakeFromNib() {
-        self.layer.cornerRadius = self.layer.frame.size.width / 2
+        self.layer.cornerRadius = self.frame.size.width / 2.0
         self.clipsToBounds = true
         
         smallScale()

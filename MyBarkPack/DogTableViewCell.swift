@@ -45,7 +45,11 @@ extension DogTableViewCell {
         self.dog = dog
         
         if let dogImage = dog.image {
-            profileImage.image = UIImage(data: dogImage)
+            let image = UIImage(data: dogImage)
+            
+            self.profileImage.image = image
+            self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
+            
         } else {
             profileImage.image = nil
         }
@@ -56,6 +60,7 @@ extension DogTableViewCell {
         
         if dog.sex == true {
             nameContainerView.backgroundColor = UIColor.lightBlue()
+            
             pawSexImage.image = UIImage(named: "Paw")
             ageContainerView.backgroundColor = UIColor.lightBlue()
             
