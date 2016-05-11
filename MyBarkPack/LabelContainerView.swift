@@ -11,6 +11,7 @@ import UIKit
 class LabelContainerView: UIView {
     
     override func awakeFromNib() {
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = 12
     }
 }
+

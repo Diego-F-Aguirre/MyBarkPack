@@ -13,16 +13,18 @@ class DogController {
     static let sharedController = DogController()
     private let kDog = "Dog"
     
-    var dogs: [Dog] {
-        guard let dogs = fetchAllDogs() else { return [] }
-        return dogs
+    var dogs: [Dog] = []
+    
+    init() {
+        dogs = fetchAllDogs() ?? []
     }
 }
 
 extension DogController {
     func createDog(name: String, age: Int, sex: Bool, image: NSData?) {
-        let _ = Dog(name: name, age: age, sex: sex, image: image)
+        guard let _ = Dog(name: name, age: age, sex: sex, image: image) else {return}
         saveDog()
+        dogs = fetchAllDogs() ?? []
     }
     
     func fetchAllDogs() -> [Dog]? {
@@ -59,5 +61,6 @@ extension DogController {
     func removeDog(dog: Dog) {
         dog.managedObjectContext?.deleteObject(dog)
         saveDog()
+        dogs = fetchAllDogs() ?? []
     }
 }

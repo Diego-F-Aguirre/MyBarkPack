@@ -14,12 +14,14 @@ class DogDetailViewController: UIViewController {
     
     var dog: Dog?
     var task: Task?
+    var loaded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let dog = self.dog else { return }
         updateViewWithDog(dog)
+        
     }
 }
 
@@ -81,40 +83,88 @@ extension DogDetailViewController: UITableViewDataSource {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let header = SectionHeaderTableViewCell()
+        let header = SectionHeaderView()
         return header.sections.count
     }
 }
 
-extension DogDetailViewController: UITableViewDelegate, SectionHeaderTableViewCellDelegate {
+extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegate {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let task = TaskController.sharedController.tasks[indexPath.row]
-            TaskController.sharedController.deleteTask(task)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            if let dog = dog {
+                switch indexPath.section {
+                case 0:
+                    guard let task = dog.tasks.filter({$0.type == String(Type.Meals)})[indexPath.row] as? Task else { return }
+                    
+                    TaskController.sharedController.deleteTask(task)
+                    self.tableView.beginUpdates()
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    self.tableView.endUpdates()
+                case 1:
+                    guard let task = dog.tasks.filter({$0.type == String(Type.Exercise)})[indexPath.row] as? Task else { return }
+                    
+                    TaskController.sharedController.deleteTask(task)
+                    self.tableView.beginUpdates()
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    self.tableView.endUpdates()
+                case 2:
+                    guard let task = dog.tasks.filter({$0.type == String(Type.Health)})[indexPath.row] as? Task else { return }
+                    
+                    TaskController.sharedController.deleteTask(task)
+                    self.tableView.beginUpdates()
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    self.tableView.endUpdates()
+                case 3:
+                    guard let task = dog.tasks.filter({$0.type == String(Type.Training)})[indexPath.row] as? Task else { return }
+                    
+                    TaskController.sharedController.deleteTask(task)
+                    self.tableView.beginUpdates()
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    self.tableView.endUpdates()
+                case 4:
+                    guard let task = dog.tasks.filter({$0.type == String(Type.Misc)})[indexPath.row] as? Task else { return }
+                    
+                    TaskController.sharedController.deleteTask(task)
+                    self.tableView.beginUpdates()
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    self.tableView.endUpdates()
+                default:
+                    break
+                }
+            }
         }
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let header = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as? SectionHeaderTableViewCell else { return UITableViewCell() }
+        let header = NSBundle.mainBundle().loadNibNamed("SectionHeader", owner: self, options: nil).first as? SectionHeaderView
         
-        header.delegate = self
-        header.updateDogWithGender(dog)
+        header?.delegate = self
+        header?.updateDogWithGender(dog)
+        if !loaded {
+            header?.runAnimation()
+            loaded = true
+        } else {
+            header?.toggleHiddenItems()
+        }
         
-        header.type = header.sections[section]
+        header?.type = header?.sections[section]
         
-        header.sectionTitleLabel.text = header.sections[section].rawValue
+        header?.sectionTitleLabel.text = header?.sections[section].rawValue
         
-        return header 
+        return header
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 60.0
     }
     
-    func didSelectUserHeaderTableViewCell(sectionHeader: SectionHeaderTableViewCell, selected: Bool, type: Type) {
+    func didSelectUserHeaderView(sectionHeader: SectionHeaderView, selected: Bool, type: Type) {
         let alertController = UIAlertController(title: "Enter a task", message: nil, preferredStyle: .Alert)
-        alertController.view.backgroundColor = UIColor.lightBlue()
         
         var inputTaskTextField: UITextField?
         
