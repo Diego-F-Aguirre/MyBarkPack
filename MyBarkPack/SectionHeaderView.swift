@@ -80,7 +80,6 @@ extension SectionHeaderView {
         spring.beginTime = CACurrentMediaTime() + 0.5
         spring.springBounciness = 15
         spring.toValue = NSValue(CGSize: CGSizeMake(1.0, 1.0))
-//        spring.velocity = NSValue(CGSize: CGSizeMake(2.0, 2.0))
         self.layer.pop_addAnimation(spring, forKey: kSpringAnimation)
     }
 }

@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="288" height="32"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfz-Yc-3WG" customClass="LabelContainerView" customModule="MyBarkPack" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfz-Yc-3WG" customClass="HeaderLabelContainerView" customModule="MyBarkPack" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="288" height="32"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvK-pM-DQC">

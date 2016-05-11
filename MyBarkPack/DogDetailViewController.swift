@@ -160,7 +160,7 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 60.0
+        return 30.0
     }
     
     func didSelectUserHeaderView(sectionHeader: SectionHeaderView, selected: Bool, type: Type) {

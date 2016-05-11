@@ -24,6 +24,7 @@ class DogListViewController: UIViewController {
     }
     
     var dogGender: Gender?
+    var loaded: Bool = false
 }
 
 extension DogListViewController: UITableViewDataSource {
@@ -36,6 +37,13 @@ extension DogListViewController: UITableViewDataSource {
         
         let dog = DogController.sharedController.dogs[indexPath.row]
         cell.updateDogCell(dog)
+        
+        if !loaded {
+            cell.runAnimation()
+            loaded = true
+        } else {
+            cell.toggleHiddenItems()
+        }
         
         return cell
     }
