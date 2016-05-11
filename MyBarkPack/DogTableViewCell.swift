@@ -38,6 +38,7 @@ extension DogTableViewCell {
             pawSexImage.image = UIImage(named: "Paw")
             ageContainerView.backgroundColor = UIColor.lightBlue()
             
+            
         } else {
             nameContainerView.backgroundColor = UIColor.lightPink()
             pawSexImage.image = UIImage(named: "Female_Paw")
@@ -45,4 +46,5 @@ extension DogTableViewCell {
         }
     }
 }
+
 

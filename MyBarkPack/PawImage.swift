@@ -1,27 +1,24 @@
 //
-//  CircleView.swift
+//  PawImage.swift
 //  MyBarkPack
 //
-//  Created by Diego Aguirre on 4/30/16.
+//  Created by Diego Aguirre on 5/10/16.
 //  Copyright © 2016 home. All rights reserved.
 //
 
 import UIKit
 import pop
 
-class CircleView: UIView {
-     private let kSmallScaleAnimation = "smallScaleAnimation"
+class PawImage: UIImageView {
+    private let kSmallScaleAnimation = "smallScaleAnimation"
     private let kSpringAnimation = "springAnimation"
     
     override func awakeFromNib() {
-        self.layer.cornerRadius = CGRectGetWidth(self.layer.frame)/2.0
-        self.clipsToBounds = true
-        
         smallScale()
     }
 }
 
-extension CircleView {
+extension PawImage {
     func springAnimation() {
         let spring = POPSpringAnimation(propertyNamed: kPOPLayerScaleX)
         spring.beginTime = CACurrentMediaTime() + 0.5
