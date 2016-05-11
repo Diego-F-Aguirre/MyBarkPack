@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBarkPack/DogDetailViewController.swift"
-            timestampString = "484606086.367131"
+            timestampString = "484621279.908574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "checkValueChanged(_:selection:)"
             landmarkType = "5">
             <Locations>

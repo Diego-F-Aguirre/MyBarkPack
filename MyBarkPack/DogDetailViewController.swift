@@ -158,7 +158,6 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
     
     func didSelectUserHeaderView(sectionHeader: SectionHeaderView, selected: Bool, type: Type) {
         let alertController = UIAlertController(title: "Enter a task", message: nil, preferredStyle: .Alert)
-        alertController.view.backgroundColor = UIColor.lightBlue()
         
         var inputTaskTextField: UITextField?
         

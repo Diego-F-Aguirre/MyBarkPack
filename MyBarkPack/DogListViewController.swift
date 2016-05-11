@@ -65,11 +65,9 @@ extension DogListViewController {
                 let inputAgeTextField = inputAgeTextField,
                 age = Int(inputAgeTextField.text!) where age != 0
             {
-                //                alertController.actions[0].enabled = true
                 confirmationHandler(text, age)
             } else {
                 print("No name or age entered")
-                //                alertController.actions[0].enabled = false
             }
         }
         
@@ -80,11 +78,9 @@ extension DogListViewController {
                 let inputAgeTextField = inputAgeTextField,
                 age = Int(inputAgeTextField.text!) where age != 0
             {
-                //                alertController.actions[0].enabled = true
                 confirmationHandler(text, age)
             } else {
                 print("No name or age entered")
-                //                alertController.actions[0].enabled = false
             }
         }
         
@@ -132,10 +128,6 @@ extension DogListViewController {
             dogDetailVC = segue.destinationViewController as? DogDetailViewController else { return }
             
            let dog = DogController.sharedController.dogs[indexPath.row]
-            
-//            let sectionHeaderTableView = SectionHeaderTableViewCell()
-//            
-//            sectionHeaderTableView.dog = dog
             dogDetailVC.dog = dog
         }
     }
