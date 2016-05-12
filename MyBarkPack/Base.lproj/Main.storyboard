@@ -218,12 +218,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKP-cd-K5V">
-                                                    <rect key="frame" x="8" y="6" width="318" height="32"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPx-V9-sgK" customClass="TaskButton" customModule="MyBarkPack" customModuleProvider="target">
                                                     <rect key="frame" x="334" y="6" width="32" height="32"/>
                                                     <constraints>
@@ -235,73 +229,53 @@
                                                         <action selector="checkBoxButtonPressed:" destination="dew-T5-YdR" eventType="touchUpInside" id="xvY-kb-98N"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKP-cd-K5V">
+                                                    <rect key="frame" x="8" y="6" width="318" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="IKP-cd-K5V" secondAttribute="height" multiplier="159:16" id="6Hl-px-ckI"/>
+                                                        <constraint firstAttribute="width" secondItem="IKP-cd-K5V" secondAttribute="height" multiplier="159:16" id="KGz-z9-IH9"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="pdS-jZ-3VF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="6Hl-px-ckI"/>
+                                                            <exclude reference="KGz-z9-IH9"/>
+                                                            <exclude reference="pdS-jZ-3VF"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="IKP-cd-K5V" secondAttribute="bottom" constant="-3" id="2si-ny-nQb"/>
+                                                <constraint firstItem="IKP-cd-K5V" firstAttribute="top" secondItem="72p-v8-UoG" secondAttribute="topMargin" constant="-2" id="DRx-c2-88u"/>
+                                                <constraint firstAttribute="bottom" secondItem="IKP-cd-K5V" secondAttribute="bottom" constant="15" id="QsV-IW-9oO"/>
                                                 <constraint firstItem="sPx-V9-sgK" firstAttribute="top" secondItem="72p-v8-UoG" secondAttribute="topMargin" constant="-2" id="TgS-Uk-vEZ"/>
-                                                <constraint firstItem="IKP-cd-K5V" firstAttribute="top" secondItem="72p-v8-UoG" secondAttribute="topMargin" constant="-2" id="fnD-Wa-Vf6"/>
+                                                <constraint firstItem="IKP-cd-K5V" firstAttribute="height" secondItem="sPx-V9-sgK" secondAttribute="height" id="a8S-1i-xLJ"/>
+                                                <constraint firstItem="sPx-V9-sgK" firstAttribute="leading" secondItem="IKP-cd-K5V" secondAttribute="trailing" constant="8" id="eZF-Us-M7q"/>
+                                                <constraint firstItem="IKP-cd-K5V" firstAttribute="centerX" secondItem="72p-v8-UoG" secondAttribute="centerX" id="emw-8o-QeC"/>
+                                                <constraint firstAttribute="bottom" secondItem="sPx-V9-sgK" secondAttribute="bottom" constant="5" id="enA-6N-V9b"/>
+                                                <constraint firstItem="IKP-cd-K5V" firstAttribute="centerY" secondItem="sPx-V9-sgK" secondAttribute="centerY" id="jd2-s9-KAZ"/>
                                                 <constraint firstItem="sPx-V9-sgK" firstAttribute="trailing" secondItem="72p-v8-UoG" secondAttribute="trailingMargin" id="lHX-Oi-D6R"/>
-                                                <constraint firstItem="IKP-cd-K5V" firstAttribute="leading" secondItem="72p-v8-UoG" secondAttribute="leadingMargin" id="pE3-cM-aR0"/>
-                                                <constraint firstItem="sPx-V9-sgK" firstAttribute="leading" secondItem="IKP-cd-K5V" secondAttribute="trailing" constant="8" id="uWw-uI-w9b"/>
+                                                <constraint firstItem="sPx-V9-sgK" firstAttribute="centerY" secondItem="IKP-cd-K5V" secondAttribute="centerY" id="qjd-OE-dXQ"/>
+                                                <constraint firstItem="IKP-cd-K5V" firstAttribute="leading" secondItem="72p-v8-UoG" secondAttribute="leading" constant="8" id="s6P-U3-LXY"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2si-ny-nQb"/>
+                                                    <exclude reference="a8S-1i-xLJ"/>
+                                                    <exclude reference="emw-8o-QeC"/>
+                                                    <exclude reference="jd2-s9-KAZ"/>
+                                                    <exclude reference="enA-6N-V9b"/>
+                                                    <exclude reference="qjd-OE-dXQ"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkBoxButton" destination="sPx-V9-sgK" id="gyL-Vn-ahY"/>
                                             <outlet property="titleLabel" destination="IKP-cd-K5V" id="eL9-Zi-ROl"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sectionHeader" rowHeight="32" id="cyA-w1-E3p" customClass="SectionHeaderTableViewCell" customModule="MyBarkPack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="374" height="32"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cyA-w1-E3p" id="eQL-r4-bGN">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="648-wK-OqI" customClass="LabelContainerView" customModule="MyBarkPack" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sp5-PP-3sT">
-                                                            <rect key="frame" x="48" y="0.0" width="278" height="30"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7db-y7-b5g">
-                                                            <rect key="frame" x="339" y="1" width="26" height="26"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="26" id="H62-Un-fnn"/>
-                                                                <constraint firstAttribute="width" constant="26" id="v4b-ty-omc"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button" image="Plus">
-                                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="plusButtonPressed:" destination="cyA-w1-E3p" eventType="touchUpInside" id="1VC-cT-Akf"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.41960784309999999" green="0.84313725490000002" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="sp5-PP-3sT" secondAttribute="bottom" constant="2" id="5h7-3V-NLl"/>
-                                                        <constraint firstItem="7db-y7-b5g" firstAttribute="top" secondItem="648-wK-OqI" secondAttribute="top" constant="1" id="Cm1-bE-Cbf"/>
-                                                        <constraint firstItem="sp5-PP-3sT" firstAttribute="top" secondItem="648-wK-OqI" secondAttribute="top" id="Rx9-Wd-hip"/>
-                                                        <constraint firstAttribute="trailing" secondItem="7db-y7-b5g" secondAttribute="trailing" constant="9" id="chT-iC-Qaa"/>
-                                                        <constraint firstItem="7db-y7-b5g" firstAttribute="leading" secondItem="sp5-PP-3sT" secondAttribute="trailing" constant="13" id="e5B-MZ-vBa"/>
-                                                        <constraint firstItem="sp5-PP-3sT" firstAttribute="leading" secondItem="648-wK-OqI" secondAttribute="leading" constant="48" id="e87-HX-eoL"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="648-wK-OqI" secondAttribute="bottom" constant="-1" id="Gqw-lv-prE"/>
-                                                <constraint firstItem="648-wK-OqI" firstAttribute="leading" secondItem="eQL-r4-bGN" secondAttribute="leading" id="bt7-om-kZq"/>
-                                                <constraint firstItem="648-wK-OqI" firstAttribute="top" secondItem="eQL-r4-bGN" secondAttribute="top" id="hc2-TN-ATm"/>
-                                                <constraint firstAttribute="trailing" secondItem="648-wK-OqI" secondAttribute="trailing" id="o7q-Nh-6sm"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="labelContainerView" destination="648-wK-OqI" id="Nyi-vT-bxb"/>
-                                            <outlet property="plusButton" destination="7db-y7-b5g" id="bOt-Fs-VAv"/>
-                                            <outlet property="sectionTitleLabel" destination="sp5-PP-3sT" id="NaM-Tz-X9g"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -364,6 +338,5 @@
     <resources>
         <image name="Empty_Check_Box" width="32" height="32"/>
         <image name="Paw" width="32" height="43"/>
-        <image name="Plus" width="25" height="25"/>
     </resources>
 </document>

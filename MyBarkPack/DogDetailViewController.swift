@@ -160,11 +160,23 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30.0
+        return 30
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     func didSelectUserHeaderView(sectionHeader: SectionHeaderView, selected: Bool, type: Type) {
-        let alertController = UIAlertController(title: "Enter a task", message: nil, preferredStyle: .Alert)
+        guard let dog = dog else { return }
+            let alertController = UIAlertController(title: "Enter a task", message: "How can you please \(dog.name)?", preferredStyle: .Alert)
+        
         
         var inputTaskTextField: UITextField?
         
