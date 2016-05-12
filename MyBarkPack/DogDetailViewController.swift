@@ -209,6 +209,7 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
         alertController.addTextFieldWithConfigurationHandler { textField in
             textField.placeholder = "Enter a task"
             textField.textAlignment =  NSTextAlignment.Center
+            textField.autocorrectionType = UITextAutocorrectionType.Default
             inputTaskTextField = textField
         }
         
