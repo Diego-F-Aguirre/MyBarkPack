@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SimpleAlert
 
 class DogDetailViewController: UIViewController {
     @IBOutlet weak var dogProfileImage: UIImageView!
@@ -15,13 +16,13 @@ class DogDetailViewController: UIViewController {
     var dog: Dog?
     var task: Task?
     var loaded: Bool = false
+    var visualEffectView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let dog = self.dog else { return }
         updateViewWithDog(dog)
-        
     }
 }
 
@@ -175,12 +176,17 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
     
     func didSelectUserHeaderView(sectionHeader: SectionHeaderView, selected: Bool, type: Type) {
         guard let dog = dog else { return }
-            let alertController = UIAlertController(title: "Enter a task", message: "How can you please \(dog.name)?", preferredStyle: .Alert)
         
+        let alert = AlertController(title: "Enter a task to complete", message: "How can you please \(dog.name) today?", style: .Alert)
         
         var inputTaskTextField: UITextField?
         
-        let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        alert.addAction(SimpleAlert.Action(title: "Cancel", style: .Cancel, handler: { _ in
+            self.removeBlurEffect()
+        }))
+        
+        alert.addAction(SimpleAlert.Action(title: "OK", style: .OK, handler: { (action) in
+            
             guard let inputTaskTextField = inputTaskTextField,
                 text = inputTaskTextField.text else { return }
             
@@ -201,23 +207,50 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
                     TaskController.sharedController.createTask(text, dog: dog, type: .Misc, isComplete: false)
                 }
             }
+            self.removeBlurEffect()
             self.tableView.reloadData()
+        }))
+        
+        
+        alert.configContentView = { view in
+            if let view = view as? SimpleAlert.ContentView {
+                if !UIAccessibilityIsReduceTransparencyEnabled() {
+                    self.addBlurEffect()
+                    view.backgroundColor = UIColor.clearColor()
+                    view.titleLabel.textColor = UIColor.whiteColor()
+                    view.messageLabel.textColor = UIColor.whiteColor()
+                } else {
+                    self.removeBlurEffect()
+                    view.titleLabel.textColor = UIColor.blackColor()
+                    view.messageLabel.textColor = UIColor.blackColor()
+                }
+            }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.configContainerWidth = {
+            return self.view.frame.width - 10
+        }
         
-        alertController.addTextFieldWithConfigurationHandler { textField in
-            textField.placeholder = "Enter a task"
-            textField.textAlignment =  NSTextAlignment.Center
+        alert.addTextFieldWithConfigurationHandler { (textField) in
             inputTaskTextField = textField
         }
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func addBlurEffect() {
+        view.backgroundColor = UIColor.clearColor()
         
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        visualEffectView = UIVisualEffectView(effect: blurEffect)
         
-        presentViewController(alertController, animated: true, completion: nil)
-        
-        print("Cell selected")
+        visualEffectView.frame = self.view.bounds
+        visualEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.view.addSubview(visualEffectView)
+    }
+    
+    func removeBlurEffect() {
+        visualEffectView.removeFromSuperview()
+        self.view.backgroundColor = UIColor.whiteColor()
     }
 }
 
@@ -304,35 +337,3 @@ extension DogDetailViewController: TaskTableViewCellDelegate {
         tableView.reloadData()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

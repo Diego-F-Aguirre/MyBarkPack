@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SimpleAlert.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>20D5CACABB6825D7F1FAC7B9F772E083</key>
+		<key>747EE5D64F4EDD57FF1731DC3FAA4884</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>825247B26F3F6D617CEBB5512B82B942</key>
+		<key>85037C074CB8039881CF27E902D015E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A496397DBD4FAD58EBB3F237648402D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

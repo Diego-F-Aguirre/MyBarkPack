@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'MyBarkPack' do
 pod 'pop', '~> 1.0'
+pod "SimpleAlert"
 end
 

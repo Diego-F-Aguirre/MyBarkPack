@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03E53DCE1DDA2FE99B72EE6F /* Pods_MyBarkPack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850475EAFACC31B20F01DDF4 /* Pods_MyBarkPack.framework */; };
+		BC100DF31CE574B800B29F15 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC100DF21CE574B800B29F15 /* AlertController.swift */; };
 		BC46CEEB1CCB68CB006BAFC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CEEA1CCB68CA006BAFC0 /* AppDelegate.swift */; };
 		BC46CEF01CCB68CB006BAFC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC46CEEE1CCB68CB006BAFC0 /* Main.storyboard */; };
 		BC46CEF21CCB68CB006BAFC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC46CEF11CCB68CB006BAFC0 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		850475EAFACC31B20F01DDF4 /* Pods_MyBarkPack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBarkPack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5BC1214B2BD6CDF2E6DFBF /* Pods-MyBarkPack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBarkPack.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyBarkPack/Pods-MyBarkPack.release.xcconfig"; sourceTree = "<group>"; };
+		BC100DF21CE574B800B29F15 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		BC46CEE71CCB68CA006BAFC0 /* MyBarkPack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBarkPack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC46CEEA1CCB68CA006BAFC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC46CEEF1CCB68CB006BAFC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				BC46CF141CCB8142006BAFC0 /* AppearanceController.swift */,
 				BC46CF181CCDA73F006BAFC0 /* DogController.swift */,
 				BC46CF1E1CCDE0FA006BAFC0 /* TaskController.swift */,
+				BC100DF21CE574B800B29F15 /* AlertController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				BC527D6F1CDBF1B800C19F31 /* Task.swift in Sources */,
 				BC46CF0C1CCB6E81006BAFC0 /* Dog.swift in Sources */,
 				BC46CF1F1CCDE0FA006BAFC0 /* TaskController.swift in Sources */,
+				BC100DF31CE574B800B29F15 /* AlertController.swift in Sources */,
 				BC527D8E1CE17A3E00C19F31 /* TaskButton.swift in Sources */,
 				BC46CF011CCB6947006BAFC0 /* Stack.swift in Sources */,
 				BC46CF191CCDA73F006BAFC0 /* DogController.swift in Sources */,
