@@ -15,7 +15,6 @@ class DogDetailViewController: UIViewController {
     
     var dog: Dog?
     var task: Task?
-    var loaded: Bool = false
     var visualEffectView: UIVisualEffectView!
     
     override func viewDidLoad() {
@@ -142,20 +141,20 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = NSBundle.mainBundle().loadNibNamed("SectionHeader", owner: self, options: nil).first as? SectionHeaderView
+        guard let header = NSBundle.mainBundle().loadNibNamed("SectionHeader", owner: self, options: nil).first as? SectionHeaderView else { return UIView() }
         
-        header?.delegate = self
-        header?.updateDogWithGender(dog)
-        if !loaded {
-            header?.runAnimation()
-            loaded = true
+        header.delegate = self
+        header.updateDogWithGender(dog)
+        if !header.loaded {
+            header.runAnimation()
+            header.loaded = true
         } else {
-            header?.toggleHiddenItems()
+            header.toggleHiddenItems()
         }
         
-        header?.type = header?.sections[section]
+        header.type = header.sections[section]
         
-        header?.sectionTitleLabel.text = header?.sections[section].rawValue
+        header.sectionTitleLabel.text = header.sections[section].rawValue
         
         return header
     }
@@ -331,9 +330,10 @@ extension DogDetailViewController {
 
 extension DogDetailViewController: TaskTableViewCellDelegate {
     func checkValueChanged(cell: TaskTableViewCell, selection: Bool) {
-        guard let task = cell.task else { return }
+        guard let task = cell.task,
+            indexPath = tableView.indexPathsForVisibleRows else { return }
         
         TaskController.sharedController.updateCheckValueChanged(task, selected: selection)
-        tableView.reloadData()
+        tableView.reloadRowsAtIndexPaths(indexPath, withRowAnimation: .Automatic)
     }
 }

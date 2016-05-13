@@ -11,6 +11,8 @@ import UIKit
 class DogListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var tableViewImage: UIImageView?
+    
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -29,7 +31,21 @@ class DogListViewController: UIViewController {
 
 extension DogListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DogController.sharedController.dogs.count
+        if DogController.sharedController.dogs.count != 0 {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .SingleLine
+            
+            return DogController.sharedController.dogs.count
+            
+        } else {
+            let image = UIImage(named: "Empty_TableView")
+            let imageView =  UIImageView(image: image)
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            tableView.backgroundView = UIImageView(image: image)
+            tableView.separatorStyle = .None
+
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
