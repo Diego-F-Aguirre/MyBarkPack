@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A3EDAFF7929CA2FA4522A92A'
-               BlueprintName = 'Pods-MyBarkPack'
+               BlueprintIdentifier = '3D43957AE006F88264E5ED22'
+               BlueprintName = 'SimpleAlert'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_MyBarkPack.framework'>
+               BuildableName = 'SimpleAlert.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

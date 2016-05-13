@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBarkPack/DogDetailViewController.swift"
-            timestampString = "484766935.34406"
+            timestampString = "484802231.590063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "tableView(_:commitEditingStyle:forRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBarkPack/DogDetailViewController.swift"
-            timestampString = "484779574.380163"
+            timestampString = "484845297.211454"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "checkValueChanged(_:selection:)"
             landmarkType = "5">
             <Locations>
@@ -115,11 +115,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBarkPack/DogDetailViewController.swift"
-            timestampString = "484766935.34406"
+            timestampString = "484802231.590063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "5">
          </BreakpointContent>
