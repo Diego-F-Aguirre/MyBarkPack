@@ -35,7 +35,19 @@
 		BC527D981CE3972200C19F31 /* HeaderLabelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC527D971CE3972200C19F31 /* HeaderLabelContainerView.swift */; };
 		BCC41CF91CD5242D0099A326 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CF81CD5242D0099A326 /* CircleView.swift */; };
 		BCC41CFB1CD525B60099A326 /* LabelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */; };
+		BCFE99781CE6E1DA0055E440 /* MyBarkPackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE99771CE6E1DA0055E440 /* MyBarkPackUITests.swift */; };
+		BCFE99801CE6E2150055E440 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE997F1CE6E2150055E440 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCFE997A1CE6E1DA0055E440 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC46CEDF1CCB68CA006BAFC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC46CEE61CCB68CA006BAFC0;
+			remoteInfo = MyBarkPack;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		850475EAFACC31B20F01DDF4 /* Pods_MyBarkPack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBarkPack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +82,10 @@
 		BC527D971CE3972200C19F31 /* HeaderLabelContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderLabelContainerView.swift; sourceTree = "<group>"; };
 		BCC41CF81CD5242D0099A326 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		BCC41CFA1CD525B60099A326 /* LabelContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelContainerView.swift; sourceTree = "<group>"; };
+		BCFE99751CE6E1DA0055E440 /* MyBarkPackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBarkPackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCFE99771CE6E1DA0055E440 /* MyBarkPackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBarkPackUITests.swift; sourceTree = "<group>"; };
+		BCFE99791CE6E1DA0055E440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCFE997F1CE6E2150055E440 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		DEAA484B5E335111164FC587 /* Pods-MyBarkPack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBarkPack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyBarkPack/Pods-MyBarkPack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +95,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E53DCE1DDA2FE99B72EE6F /* Pods_MyBarkPack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCFE99721CE6E1DA0055E440 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				BC46CEE91CCB68CA006BAFC0 /* MyBarkPack */,
+				BCFE99761CE6E1DA0055E440 /* MyBarkPackUITests */,
 				BC46CEE81CCB68CA006BAFC0 /* Products */,
 				DF70844870FF1C0297B66738 /* Pods */,
 				1CC59F0ADB297B25ACBBA502 /* Frameworks */,
@@ -107,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				BC46CEE71CCB68CA006BAFC0 /* MyBarkPack.app */,
+				BCFE99751CE6E1DA0055E440 /* MyBarkPackUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,6 +219,16 @@
 			name = CustomViews;
 			sourceTree = "<group>";
 		};
+		BCFE99761CE6E1DA0055E440 /* MyBarkPackUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BCFE99771CE6E1DA0055E440 /* MyBarkPackUITests.swift */,
+				BCFE99791CE6E1DA0055E440 /* Info.plist */,
+				BCFE997F1CE6E2150055E440 /* SnapshotHelper.swift */,
+			);
+			path = MyBarkPackUITests;
+			sourceTree = "<group>";
+		};
 		DF70844870FF1C0297B66738 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +262,24 @@
 			productReference = BC46CEE71CCB68CA006BAFC0 /* MyBarkPack.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BCFE99741CE6E1DA0055E440 /* MyBarkPackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCFE997C1CE6E1DA0055E440 /* Build configuration list for PBXNativeTarget "MyBarkPackUITests" */;
+			buildPhases = (
+				BCFE99711CE6E1DA0055E440 /* Sources */,
+				BCFE99721CE6E1DA0055E440 /* Frameworks */,
+				BCFE99731CE6E1DA0055E440 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCFE997B1CE6E1DA0055E440 /* PBXTargetDependency */,
+			);
+			name = MyBarkPackUITests;
+			productName = MyBarkPackUITests;
+			productReference = BCFE99751CE6E1DA0055E440 /* MyBarkPackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -240,6 +293,10 @@
 					BC46CEE61CCB68CA006BAFC0 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = HQN23BS377;
+					};
+					BCFE99741CE6E1DA0055E440 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = BC46CEE61CCB68CA006BAFC0;
 					};
 				};
 			};
@@ -257,6 +314,7 @@
 			projectRoot = "";
 			targets = (
 				BC46CEE61CCB68CA006BAFC0 /* MyBarkPack */,
+				BCFE99741CE6E1DA0055E440 /* MyBarkPackUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,6 +328,13 @@
 				BC46CEF21CCB68CB006BAFC0 /* Assets.xcassets in Resources */,
 				BC46CEF01CCB68CB006BAFC0 /* Main.storyboard in Resources */,
 				BC527D901CE27B7B00C19F31 /* SectionHeader.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCFE99731CE6E1DA0055E440 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +419,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BCFE99711CE6E1DA0055E440 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCFE99781CE6E1DA0055E440 /* MyBarkPackUITests.swift in Sources */,
+				BCFE99801CE6E2150055E440 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCFE997B1CE6E1DA0055E440 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC46CEE61CCB68CA006BAFC0 /* MyBarkPack */;
+			targetProxy = BCFE997A1CE6E1DA0055E440 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BC46CEEE1CCB68CB006BAFC0 /* Main.storyboard */ = {
@@ -490,6 +572,28 @@
 			};
 			name = Release;
 		};
+		BCFE997D1CE6E1DA0055E440 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyBarkPackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegoa3d.MyBarkPackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyBarkPack;
+			};
+			name = Debug;
+		};
+		BCFE997E1CE6E1DA0055E440 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyBarkPackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegoa3d.MyBarkPackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyBarkPack;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -510,6 +614,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BCFE997C1CE6E1DA0055E440 /* Build configuration list for PBXNativeTarget "MyBarkPackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCFE997D1CE6E1DA0055E440 /* Debug */,
+				BCFE997E1CE6E1DA0055E440 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
