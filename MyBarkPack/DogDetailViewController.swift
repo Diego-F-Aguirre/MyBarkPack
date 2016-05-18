@@ -330,10 +330,28 @@ extension DogDetailViewController {
 
 extension DogDetailViewController: TaskTableViewCellDelegate {
     func checkValueChanged(cell: TaskTableViewCell, selection: Bool) {
-        guard let task = cell.task,
-            indexPath = tableView.indexPathsForVisibleRows else { return }
-        
+        guard let task = cell.task else { return }
+ 
         TaskController.sharedController.updateCheckValueChanged(task, selected: selection)
-        tableView.reloadRowsAtIndexPaths(indexPath, withRowAnimation: .Automatic)
+        tableView.reloadData()
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
