@@ -140,6 +140,14 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.alpha = 0
+        
+        UIView.animateWithDuration(1.0) { 
+            cell.alpha = 1.0
+        }
+    }
+    
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = NSBundle.mainBundle().loadNibNamed("SectionHeader", owner: self, options: nil).first as? SectionHeaderView else { return UIView() }
         
@@ -175,7 +183,7 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
     
     func didSelectUserHeaderView(sectionHeader: SectionHeaderView, selected: Bool, type: Type) {
         guard let dog = dog else { return }
-        
+
         let alert = AlertController(title: "Enter a task to complete", message: "How can you please \(dog.name) today?", style: .Alert)
         
         var inputTaskTextField: UITextField?
@@ -331,9 +339,31 @@ extension DogDetailViewController {
 extension DogDetailViewController: TaskTableViewCellDelegate {
     func checkValueChanged(cell: TaskTableViewCell, selection: Bool) {
         guard let task = cell.task,
-            indexPath = tableView.indexPathsForVisibleRows else { return }
+                indexPath = tableView.indexPathForCell(cell) else { return }
         
+        
+        tableView.beginUpdates()
         TaskController.sharedController.updateCheckValueChanged(task, selected: selection)
-        tableView.reloadRowsAtIndexPaths(indexPath, withRowAnimation: .Automatic)
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.endUpdates()
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -622,6 +622,7 @@
 				BCFE997E1CE6E1DA0055E440 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
