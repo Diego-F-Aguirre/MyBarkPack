@@ -12,11 +12,14 @@ import CoreData
 class DogController {
     static let sharedController = DogController()
     private let kDog = "Dog"
-    
-    var dogs: [Dog] = []
+    var fetchedResultsController: NSFetchedResultsController
     
     init() {
-        dogs = fetchAllDogs() ?? []
+        let request = NSFetchRequest(entityName: kDog)
+        let ageSortDescriptor = NSSortDescriptor(key: "age", ascending: false)
+        request.sortDescriptors = [ageSortDescriptor]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.sharedStack.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        _ = try? fetchedResultsController.performFetch()
     }
 }
 
@@ -24,22 +27,6 @@ extension DogController {
     func createDog(name: String, age: Int, sex: Bool, image: NSData?) {
         guard let _ = Dog(name: name, age: age, sex: sex, image: image) else {return}
         saveDog()
-        dogs = fetchAllDogs() ?? []
-    }
-    
-    func fetchAllDogs() -> [Dog]? {
-        let request = NSFetchRequest(entityName: kDog)
-        let context = Stack.sharedStack.managedObjectContext
-        
-        var dogs: [Dog] = []
-        
-        do {
-            dogs = try context.executeFetchRequest(request) as! [Dog]
-        } catch let error as NSError {
-            print("failed \(error.localizedDescription) in \(#function)")
-            return nil
-        }
-        return dogs
     }
     
     func updateDog(dog: Dog, newImageData: NSData?) {
@@ -61,6 +48,5 @@ extension DogController {
     func removeDog(dog: Dog) {
         dog.managedObjectContext?.deleteObject(dog)
         saveDog()
-        dogs = fetchAllDogs() ?? []
     }
 }

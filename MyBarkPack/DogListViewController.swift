@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DogListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -17,7 +18,7 @@ class DogListViewController: UIViewController {
         
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.barTintColor = UIColor.lightBlue()
-        tableView.reloadData()
+        DogController.sharedController.fetchedResultsController.delegate = self
     }
     
     enum Gender: String {
@@ -31,11 +32,13 @@ class DogListViewController: UIViewController {
 
 extension DogListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if DogController.sharedController.dogs.count != 0 {
+        let dogCount = DogController.sharedController.fetchedResultsController.fetchedObjects?.count ?? 0
+        
+        if dogCount != 0 {
             tableView.backgroundView = nil
             tableView.separatorStyle = .SingleLine
             
-            return DogController.sharedController.dogs.count
+            return dogCount
             
         } else {
             let image = UIImage(named: "Empty_TableView")
@@ -43,15 +46,15 @@ extension DogListViewController: UITableViewDataSource {
             imageView.contentMode = UIViewContentMode.ScaleAspectFit
             tableView.backgroundView = UIImageView(image: image)
             tableView.separatorStyle = .None
-
+            
             return 0
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("dogCell", forIndexPath: indexPath) as? DogTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("dogCell", forIndexPath: indexPath) as? DogTableViewCell,
+            dog = DogController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Dog else { return UITableViewCell() }
         
-        let dog = DogController.sharedController.dogs[indexPath.row]
         cell.updateDogCell(dog)
         
         if !loaded {
@@ -74,10 +77,36 @@ extension DogListViewController: UITableViewDataSource {
 extension DogListViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let dog = DogController.sharedController.dogs[indexPath.row]
+            guard let dog = DogController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Dog else { return }
             DogController.sharedController.removeDog(dog)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
+    }
+}
+
+extension DogListViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        case .Insert:
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+        case .Update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        case .Move:
+            guard let indexPath = indexPath, newIndexPath = newIndexPath else { return }
+            tableView.moveRowAtIndexPath(indexPath, toIndexPath: newIndexPath)
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
     }
 }
 
@@ -145,7 +174,6 @@ extension DogListViewController {
                 let image = UIImage(named: "Female_Silhouette")
                 DogController.sharedController.createDog(name, age: Int(age), sex: false, image: UIImagePNGRepresentation(image!))
             }
-            self.tableView.reloadData()
         }
         presentViewController(alert, animated: true, completion: nil)
     }
@@ -155,9 +183,9 @@ extension DogListViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toDogDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow,
-            dogDetailVC = segue.destinationViewController as? DogDetailViewController else { return }
+                dog = DogController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Dog,
+                dogDetailVC = segue.destinationViewController as? DogDetailViewController else { return }
             
-           let dog = DogController.sharedController.dogs[indexPath.row]
             dogDetailVC.dog = dog
         }
     }
