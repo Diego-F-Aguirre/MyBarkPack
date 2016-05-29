@@ -10,11 +10,11 @@ import Foundation
 import CoreData
 
 enum Type: String {
-    case Meals
-    case Exercise
-    case Health
-    case Training
-    case Misc 
+    case Meals = "Meals"
+    case Exercise = "Exercise"
+    case Health = "Health"
+    case Training = "Training"
+    case Misc = "Misc"
 }
 
 
