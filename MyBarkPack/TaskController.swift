@@ -10,27 +10,22 @@ import Foundation
 import CoreData
 
 class TaskController {
-    static let sharedController = TaskController()
+    
     private let kTask = "Task"
     var fetchedResultsController: NSFetchedResultsController
     
-    var dog: Dog?
-    
-    init() {
+    init(dog: Dog) {
         let request = NSFetchRequest(entityName: kTask)
         let sortDescriptor1 = NSSortDescriptor(key: "type", ascending: true)
+        let predicate = NSPredicate(format: "dog == %@", dog)
+        request.predicate = predicate
+        
         request.sortDescriptors = [sortDescriptor1]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.sharedStack.managedObjectContext, sectionNameKeyPath: String(Type), cacheName: nil)
         _ = try? fetchedResultsController.performFetch()
         
     }
-    
-    //    var tasks: [Task] {
-    //        guard let dog = dog,
-    //            tasks = fetchAllTasksForDog(dog) else { return [] }
-    //        return tasks
-    //    }
 }
 
 extension TaskController {
@@ -42,20 +37,6 @@ extension TaskController {
             saveTask()
         }
     }
-    
-//        func fetchAllTasksForDog(dog: Dog) -> [Task]? {
-//            let request = NSFetchRequest(entityName: kTask)
-//    
-//            var tasks: [Task] = []
-//    
-//            do {
-//                tasks = try Stack.sharedStack.managedObjectContext.executeFetchRequest(request) as! [Task]
-//            } catch let error as NSError {
-//                print("failed \(error.localizedDescription) in \(#function)")
-//                return nil
-//            }
-//            return tasks
-//        }
     
     func saveTask() {
         let context = Stack.sharedStack.managedObjectContext
