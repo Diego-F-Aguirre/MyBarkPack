@@ -60,7 +60,6 @@ class SectionHeaderView: UITableViewHeaderFooterView {
             delegate?.didSelectUserHeaderView(self, selected: plusButton.selected, type: type )
         }
     }
-    
 }
 
 extension SectionHeaderView {
@@ -83,4 +82,3 @@ extension SectionHeaderView {
         self.layer.pop_addAnimation(spring, forKey: kSpringAnimation)
     }
 }
-

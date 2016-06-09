@@ -93,5 +93,3 @@ extension DogTableViewCell {
         self.layer.pop_addAnimation(spring, forKey: kSpringAnimation)
     }
 }
-
-

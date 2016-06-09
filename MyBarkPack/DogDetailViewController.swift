@@ -101,37 +101,37 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
                 case 0:
                     guard let task = dog.tasks.filter({$0.type == String(Type.Meals)})[indexPath.row] as? Task else { return }
                     
-                    TaskController.sharedController.deleteTask(task)
                     self.tableView.beginUpdates()
-                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    TaskController.sharedController.deleteTask(task)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     self.tableView.endUpdates()
                 case 1:
                     guard let task = dog.tasks.filter({$0.type == String(Type.Exercise)})[indexPath.row] as? Task else { return }
                     
-                    TaskController.sharedController.deleteTask(task)
                     self.tableView.beginUpdates()
-                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    TaskController.sharedController.deleteTask(task)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     self.tableView.endUpdates()
                 case 2:
                     guard let task = dog.tasks.filter({$0.type == String(Type.Health)})[indexPath.row] as? Task else { return }
                     
-                    TaskController.sharedController.deleteTask(task)
                     self.tableView.beginUpdates()
-                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    TaskController.sharedController.deleteTask(task)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     self.tableView.endUpdates()
                 case 3:
                     guard let task = dog.tasks.filter({$0.type == String(Type.Training)})[indexPath.row] as? Task else { return }
                     
-                    TaskController.sharedController.deleteTask(task)
                     self.tableView.beginUpdates()
-                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    TaskController.sharedController.deleteTask(task)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     self.tableView.endUpdates()
                 case 4:
                     guard let task = dog.tasks.filter({$0.type == String(Type.Misc)})[indexPath.row] as? Task else { return }
                     
-                    TaskController.sharedController.deleteTask(task)
                     self.tableView.beginUpdates()
-                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    TaskController.sharedController.deleteTask(task)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                     self.tableView.endUpdates()
                 default:
                     break
@@ -167,13 +167,12 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
         return header
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 52
     }
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
         return UITableViewAutomaticDimension
     }
     
@@ -217,7 +216,6 @@ extension DogDetailViewController: UITableViewDelegate, SectionHeaderViewDelegat
             self.removeBlurEffect()
             self.tableView.reloadData()
         }))
-        
         
         alert.configContentView = { view in
             if let view = view as? SimpleAlert.ContentView {
@@ -348,22 +346,3 @@ extension DogDetailViewController: TaskTableViewCellDelegate {
         tableView.endUpdates()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
