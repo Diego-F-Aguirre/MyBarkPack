@@ -14,10 +14,16 @@ Keep track of your beloved dog/dogs with the MyBarkPack app. Prototyped in Sketc
 Technologies
 ------------
 
- - CoreData
- - Facebook Pop -> Framework for animations
- - SimpleAlert -> Framework for creating custom alerts
- - UIImagePickerController
+ - **Core Data** - Apple’s Persistence Framework to store data
+	 - One to Many relationships established to give each dog their unique  
+   data
+ - **Facebook Pop** - A Framework for physics based animations
+	 - Scale and Spring animations used to give the app a fun & bouncy feel
+ - **SimpleAlert** - Customizable Alert Framework
+	 - Achieved a custom sleek alert design when adding a task to your dog
+ - **Sketch** - Custom designed and prototyped in this excellent
+   Graphics/Design Package
+	 - Quick app & icon design iterations used for every iPhone size
 
 Additional Tools
 ----------------
