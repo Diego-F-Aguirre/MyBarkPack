@@ -25,9 +25,5 @@ Technologies
    Graphics/Design Package
 	 - Quick app & icon design iterations used for every iPhone size
 
-Additional Tools
-----------------
-
- - Sketch
 
 > Written with [StackEdit](https://stackedit.io/).
